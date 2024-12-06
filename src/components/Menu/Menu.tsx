@@ -24,7 +24,7 @@ interface MenuProps {
   setShowAllMenu: (show: boolean) => void;
 }
 
-const Menu = ({ showAllMenu }: MenuProps) => {
+const Menu = ({ showAllMenu }: any) => {
   const pathname = usePathname();
   const [activeMenu, setActiveMenu] = useState<number | null>(null);
   const [activeSubMenu, setActiveSubMenu] = useState<number | null>(null);
