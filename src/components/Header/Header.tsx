@@ -33,11 +33,19 @@ const Header = () => {
   }, [lastScrollY]);
   return (
     <header
-      className={`w-full bg-white flex items-center gap-3 justify-center z-40 sticky top-0 transition-transform duration-300  shadow-sm`}
+      className={`w-full h-[100px] md:h-[70px] bg-white flex items-center gap-3 justify-center z-40 sticky top-0 transition-transform duration-300  shadow-sm`}
     >
       <Wrapper className="gap-5 flex justify-center items-center">
+        <Link href={"/"} className="flex md:hidden justify-center py-8">
+          <Image
+            src="/images/main_logo.png"
+            alt="Our Office"
+            height={130}
+            width={350}
+          />
+        </Link>
         {lastScrollY ? (
-          <Link href={"/"} className="flex">
+          <Link href={"/"} className="md:flex hidden">
             <Image
               src="/images/logo-icon.png"
               alt="Our Office"

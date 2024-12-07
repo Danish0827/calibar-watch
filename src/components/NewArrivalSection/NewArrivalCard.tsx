@@ -31,11 +31,11 @@ const NewArrivalCard: React.FC<ProductDataProps> = ({ data }) => {
       <div
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="relative aspect-[4/5]   shadow-md border border-gray-100 overflow-hidden cursor-pointer mb-2 "
+        className="relative aspect-[4/5] border border-gray-100 overflow-hidden cursor-pointer mb-2 "
       >
-        <div className="absolute top-0 right-0 bg-[#6d600b] text-white text-xs font-semibold px-2 py-1 rounded-bl-lg uppercase z-10">
+        {/* <div className="absolute top-0 right-0 bg-[#6d600b] text-white text-xs font-semibold px-2 py-1 rounded-bl-lg uppercase z-10">
           New
-        </div>
+        </div> */}
 
         {/* Primary Image */}
         {/* <div className="absolute left-0 top-0 w-full h-full">
@@ -52,8 +52,8 @@ const NewArrivalCard: React.FC<ProductDataProps> = ({ data }) => {
           {main_image_secondary && (
             <Image
               src={isHovered ? main_image_secondary : main_image_primary}
-              width={340}
-              height={410}
+              width={400}
+              height={450}
               alt={title}
               layout="responsive"
               objectFit="cover"
@@ -63,7 +63,7 @@ const NewArrivalCard: React.FC<ProductDataProps> = ({ data }) => {
         </div>
 
         {/* Product Title */}
-        <div className="  absolute bottom-0 left-0 text-center md:mb-3 mb-0 w-full">
+        <div className="absolute bottom-0 md:-bottom-3 left-0 text-center md:mb-3 mb-0 w-full">
           <h4 className="md:text-base text-[14px] font-medium text-black rounded-md py-1 px-2 z-10 md:line-clamp-none line-clamp-1">
             {title}
           </h4>

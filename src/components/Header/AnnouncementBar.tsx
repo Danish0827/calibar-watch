@@ -26,7 +26,7 @@ const AnnouncementBar = () => {
   return (
     <div className="bg-white">
       <Wrapper>
-        <Link href={"/"} className="flex justify-center py-8">
+        <Link href={"/"} className="lg:flex hidden justify-center py-8">
           <Image
             src="/images/main_logo.png"
             alt="Our Office"

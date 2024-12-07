@@ -1,3 +1,4 @@
+'use client'
 import { MessageCircle } from "lucide-react";
 import React from "react";
 import { CgMail } from "react-icons/cg";

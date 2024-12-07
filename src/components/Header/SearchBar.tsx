@@ -1,3 +1,4 @@
+'use client'
 import { RootState } from "@/store/store";
 import { LoaderCircle, Search } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -6,11 +7,14 @@ import { BiSearch } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import SearchResult from "./SearchResult";
 import Link from "next/link";
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 const SearchBar = ({ hasScrolled }: { hasScrolled: boolean }) => {
   const searchBoxRef = useRef<HTMLDivElement>(null);
   const [showSearchBox, setShowSearchBox] = useState(false);
   const [startSearch, setStartSearch] = useState(false);
+  const [showSearchBar, setShowSearchBar] = useState(false);
+
   const [searchValue, setSearchValue] = useState("");
   const [loading, setLoading] = useState(false);
   const path = usePathname();
@@ -20,6 +24,9 @@ const SearchBar = ({ hasScrolled }: { hasScrolled: boolean }) => {
   );
 
   // console.log(products, "searchproducts");
+  const handleSearchBar = () => {
+    setShowSearchBar(!showSearchBar);
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -33,6 +40,9 @@ const SearchBar = ({ hasScrolled }: { hasScrolled: boolean }) => {
 
       setLoading(false);
     }, 500);
+  };
+  const handleClear = () => {
+    // setSearchValue('')
   };
 
   const filteredProducts = products.filter((product) =>
@@ -105,16 +115,43 @@ const SearchBar = ({ hasScrolled }: { hasScrolled: boolean }) => {
     //     )}
     //   </div>
     // </div>
-    <li
-      className={`list-none group cursor-pointer hover:border-b-2 border-bgMain3 hover:bg-bgMain4 p-5 transition-transform ease-in text-bgMain4 hover:text-white `}
-    >
-      <Link
-        href=""
-        className="text-black hover:text-gray-600 py-2.5 hover:pl-0.5 transition-all ease-linear"
+    <>
+      <li
+        onClick={handleSearchBar}
+        className={`${showSearchBar && 'bg-bgMain4 border-b-2 border-bgMain3'} list-none group cursor-pointer hover:border-b-2 border-bgMain3 hover:bg-bgMain4 p-6 transition-transform ease-in text-bgMain4 hover:text-white `}
       >
-        <Search size={20} strokeWidth={1.5} className="text-templateText group-hover:text-white" />
-      </Link>
-    </li>
+        <Link
+          href=""
+          className="text-black hover:text-gray-600 py-2.5 hover:pl-0.5 transition-all ease-linear"
+        >
+          <Search
+            size={20}
+            strokeWidth={1.5}
+            className={`text-templateText group-hover:text-white ${showSearchBar && 'text-white'}`}
+          />
+        </Link>
+      </li>
+      {showSearchBar && (
+        <div className="bg-bgMain4 absolute w-full left-0 py-8">
+          <div className="flex items-center gap-3 justify-center w-2/3 m-auto p-4 bg-[#ffffff7b] rounded-full">
+            <input
+              onClick={() => setShowSearchBox(true)}
+              onChange={handleInputChange}
+              className={`placeholder:text-white bg-transparent outline-none ml-2 w-full ${
+                hasScrolled ? "text-white" : "text-white"
+              }`}
+              type="text"
+              placeholder="Search Products..."
+            />
+            <IoCloseCircleOutline
+              onClick={handleClear}
+              className="text-white text-3xl cursor-pointer"
+            />
+            <BiSearch className="text-white text-3xl cursor-pointer" />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

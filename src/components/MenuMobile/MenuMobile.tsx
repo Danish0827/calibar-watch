@@ -1,3 +1,4 @@
+"use client";
 import { BrandData, fetchBrandsData } from "@/utils/ApiUtils";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";

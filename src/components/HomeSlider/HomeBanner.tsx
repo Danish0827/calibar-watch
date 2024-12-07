@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   NextButton,
   PrevButton,
@@ -11,17 +11,18 @@ import {
 } from "../emblaButtons/EmblaCarousalDotButton";
 import useEmblaCarousel from "embla-carousel-react";
 
-const images = [
-  "/images/slide1.webp",
-  "/images/slide2.webp",
-  "/images/slide3.webp",
-  "/images/slide1.webp",
-  "/images/slide2.webp",
-  "/images/slide3.webp",
+const imagesDesktop = [
+  "/images/banner1.png",
+  "/images/banner2.png",
+  "/images/banner3.png",
 ];
 
+const imagesMobile = ["/images/1.png", "/images/2.png", "/images/3.png"];
+
 const HomeBanner = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel();
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }); // Enable looping
+  const [images, setImages] = useState(imagesDesktop); // Default to desktop images
+
   const {
     prevBtnDisabled,
     nextBtnDisabled,
@@ -40,6 +41,20 @@ const HomeBanner = () => {
     return () => clearInterval(autoScroll);
   }, [emblaApi]);
 
+  useEffect(() => {
+    const updateImages = () => {
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+      setImages(isMobile ? imagesMobile : imagesDesktop);
+    };
+
+    updateImages(); // Initial check
+    window.addEventListener("resize", updateImages);
+
+    return () => {
+      window.removeEventListener("resize", updateImages);
+    };
+  }, []);
+
   return (
     <div className="embla relative">
       <div className="embla__viewport" ref={emblaRef}>
@@ -56,8 +71,7 @@ const HomeBanner = () => {
         </div>
       </div>
 
-      {/* <div className="absolute inset-0 bg-black opacity-10 z-10" /> */}
-
+      {/* Navigation Dots */}
       <div className="hidden absolute left-1/2 bottom-0 transform -translate-x-1/2 mb-6 md:flex items-center gap-2 z-10">
         {scrollSnaps.map((_, index) => (
           <button

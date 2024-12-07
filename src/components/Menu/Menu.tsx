@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -106,7 +107,7 @@ const MenuItem = ({
 
   return item.subMenu ? (
     <li
-      className={`flex items-center gap-1 cursor-pointer hover:border-b-2 border-bgMain3 hover:bg-bgMain4 p-5 transition-transform ease-in text-bgMain4 hover:text-white ${
+      className={`flex items-center text-xl gap-1 font-medium uppercase cursor-pointer hover:border-b-2 border-bgMain4 hover:bg-bgMain4 p-5 transition-transform ease-in text-bgMain4 hover:text-white ${
         isActive ? "text-[#f3f3f3] border-b-2 border-bgMain4" : ""
       }`}
       onMouseEnter={() => setActiveMenu(item.id)}
@@ -127,8 +128,10 @@ const MenuItem = ({
     </li>
   ) : (
     <li
-      className={`cursor-pointer hover:border-b-2 border-bgMain3 hover:bg-bgMain4 p-5 transition-transform ease-in text-bgMain4 hover:text-white ${
-        isActive ? "text-[#f3f3f3] border-b-2 border-bgMain4" : ""
+      className={`cursor-pointer hover:border-b-2 text-xl gap-1 font-medium uppercase border-bgMain3 hover:bg-bgMain4 p-5 transition-transform ease-in text-bgMain4 hover:text-white ${
+        isActive
+          ? "text-[#f3f3f3] border-b-2 border-bgMain4 -mt-2 hover:-mt-0"
+          : ""
       }`}
     >
       <Link href={item.url}>{item.name}</Link>
@@ -147,7 +150,7 @@ const SubMenuList = ({
   activeSubMenu,
   setActiveSubMenu,
 }: SubMenuListProps) => (
-  <ul className="bg-white absolute top-[66px] min-w-[256px] px-2 py-1 text-black shadow-lg z-10">
+  <ul className="bg-white absolute top-[68px] min-w-[256px] px-2 py-1 text-black shadow-lg z-10">
     {subMenuData.map((submenu) => (
       <li
         key={submenu.id}
@@ -189,7 +192,7 @@ const InnerPagesList = ({ innerPages }: InnerPagesListProps) => (
       ))}
       <li className="px-4 py-2">
         <Link
-          href=''
+          href=""
           className="text-black hover:text-gray-600 py-2.5 hover:pl-0.5 transition-all ease-linear"
         >
           <Search size={20} strokeWidth={1.5} className="text-templateText" />

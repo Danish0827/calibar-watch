@@ -1,3 +1,4 @@
+'use client'
 import { allProducts } from "@/utils/allProducts";
 import { menuItem } from "@/utils/MenuItem";
 import { defaultDescription } from "@/utils/utilsimp";
