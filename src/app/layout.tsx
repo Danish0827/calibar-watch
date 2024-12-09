@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import Appprovider from "@/components/AppProvider";
 import FloatingButton from "@/components/FloatingButton/FloatingButton";
 import React from "react";
+import FloatingAppointment from "@/components/Footer/FloatingAppointment";
 
 export default function RootLayout({
   children,
@@ -22,6 +23,7 @@ export default function RootLayout({
             {children}
             <ToastContainer />
             <FloatingButton />
+            <FloatingAppointment />
             <Footer />
           </Appprovider>
         </body>

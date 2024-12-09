@@ -264,3 +264,6 @@ body {
     transform: translateY(-100%);
   }
 }
+.ant-modal-content {
+  padding: 0 !important;
+}

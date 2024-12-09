@@ -33,15 +33,19 @@ const Header = () => {
   }, [lastScrollY]);
   return (
     <header
-      className={`w-full h-[100px] md:h-[70px] bg-white flex items-center gap-3 justify-center z-40 sticky top-0 transition-transform duration-300  shadow-sm`}
+      className={`w-full h-[100px] px-0 md:h-[70px] bg-white flex items-center gap-3 justify-between md:justify-center z-40 sticky top-0 transition-transform duration-300  shadow-sm`}
     >
-      <Wrapper className="gap-5 flex justify-center items-center">
-        <Link href={"/"} className="flex md:hidden justify-center py-8">
+      {/* <Wrapper className="md:gap-5 flex justify-between md:justify-center items-center"> */}
+        <div className="lg:hidden">
+          <MobileSearch hasScrolled={true} />
+        </div>
+        <Link href={"/"} className="flex md:hidden justify-center py-2">
           <Image
             src="/images/main_logo.png"
             alt="Our Office"
-            height={130}
-            width={350}
+            height={100}
+            width={250}
+            className="w-36 lg:w-44"
           />
         </Link>
         {lastScrollY ? (
@@ -71,10 +75,6 @@ const Header = () => {
           />
         )}
 
-        <div className="lg:hidden">
-          <MobileSearch hasScrolled={true} />
-        </div>
-
         <div className="flex items-center gap-2 text-black md:hidden">
           <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex md:hidden justify-center items-center hover:bg-[white]/[0.5] cursor-pointer relative -mr-2">
             {mobileMenu ? (
@@ -90,7 +90,7 @@ const Header = () => {
             )}
           </div>
         </div>
-      </Wrapper>
+      {/* </Wrapper> */}
     </header>
   );
 };

@@ -6,6 +6,7 @@ import { GoArrowRight } from "react-icons/go";
 import { fetchBrandsData, BrandData } from "@/utils/ApiUtils"; // Import the API function
 import BrandCardSkeleton from "../ProductCardSkeleton/BrandCardSkeleton";
 import Link from "next/link";
+import useEmblaCarousel from "embla-carousel-react";
 
 const OurBrands = () => {
   const [brands, setBrands] = useState<BrandData[]>([]);
@@ -13,8 +14,12 @@ const OurBrands = () => {
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
-
   const scrollRef = useRef<HTMLDivElement | null>(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+    containScroll: "trimSnaps", // Ensures no excessive spacing
+  });
 
   // Function to load brands data
   const loadBrands = async (page: number) => {
@@ -67,11 +72,14 @@ const OurBrands = () => {
   }
 
   return (
-    <div className="bg-white mt-9 md:px-4">
+    <div className="bg-[#f1f1f1] pt-10 pb-6 md:px-4">
       <Wrapper>
         <div>
           <div className="flex justify-between items-center">
-            <h3 className="text-black md:text-4xl font-semibold text-2xl relative after:content-[''] after:block after:h-[3px] after:bg-gradient-to-r from-gray-500 to-black after:w-1/2 after:mt-2 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full rounded-lg">
+            {/* <h3 className="text-black md:text-4xl font-semibold text-2xl relative after:content-[''] after:block after:h-[3px] after:bg-gradient-to-r from-gray-500 to-black after:w-1/2 after:mt-2 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full rounded-lg">
+              Our Brands
+            </h3> */}
+            <h3 className="text-black md:text-4xl font-semibold text-2xl relative after:content-[''] after:block after:h-[3px] after:bg-gradient-to-r from-gray-500 to-black after:w-1/2 after:mt-2 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full rounded-lg mb-2">
               Our Brands
             </h3>
 
