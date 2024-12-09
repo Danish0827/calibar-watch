@@ -67,33 +67,6 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
 
   const data = [
     { id: 1, name: "Home", url: "/" },
-    { id: 2, name: "About", url: "/about" },
-    {
-      id: 3,
-      name: "Products",
-      // subMenu: true,
-      url: "/our-products",
-      subMenuData: [
-        {
-          id: 1,
-          name: "Watch 1",
-          innerPages: [
-            { id: 1, name: "Product A", url: "/products/watch-1/product-a" },
-            { id: 2, name: "Product B", url: "/products/watch-1/product-b" },
-            { id: 3, name: "Product C", url: "/products/watch-1/product-c" },
-          ],
-        },
-        {
-          id: 2,
-          name: "Watch 2",
-          innerPages: [
-            { id: 1, name: "Product D", url: "/products/watch-2/product-d" },
-            { id: 2, name: "Product E", url: "/products/watch-2/product-e" },
-          ],
-        },
-      ],
-    },
-    { id: 4, name: "Catalogue", url: "/catalogue" },
     {
       id: 5,
       name: "Brands",
@@ -107,12 +80,40 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
             url: brand.slug ? `/brands/${brand.slug}` : "/",
           })),
     },
+    { id: 2, name: "About", url: "/about" },
+    // {
+    //   id: 3,
+    //   name: "Products",
+    //   // subMenu: true,
+    //   url: "/our-products",
+    //   subMenuData: [
+    //     {
+    //       id: 1,
+    //       name: "Watch 1",
+    //       innerPages: [
+    //         { id: 1, name: "Product A", url: "/products/watch-1/product-a" },
+    //         { id: 2, name: "Product B", url: "/products/watch-1/product-b" },
+    //         { id: 3, name: "Product C", url: "/products/watch-1/product-c" },
+    //       ],
+    //     },
+    //     {
+    //       id: 2,
+    //       name: "Watch 2",
+    //       innerPages: [
+    //         { id: 1, name: "Product D", url: "/products/watch-2/product-d" },
+    //         { id: 2, name: "Product E", url: "/products/watch-2/product-e" },
+    //       ],
+    //     },
+    //   ],
+    // },
+    // { id: 4, name: "Catalogue", url: "/catalogue" },
+
     // { id: 6, name: "Sales", url: "/sales" },
     { id: 7, name: "Contact", url: "/contact" },
   ];
 
   return (
-    <ul className="flex flex-col md:hidden font-semibold font-sans absolute top-[70px] left-0 w-full h-[calc(100vh-50px)] bg-white border-t text-black">
+    <ul className="flex flex-col md:hidden font-semibold font-sans absolute top-[100px] left-0 w-full h-[calc(100vh-50px)] bg-white border-t text-black">
       {data.map((item) => {
         return (
           <React.Fragment key={item.id}>

@@ -107,7 +107,7 @@ const MenuItem = ({
 
   return item.subMenu ? (
     <li
-      className={`flex items-center text-xl gap-1 font-medium uppercase cursor-pointer hover:border-b-2 border-bgMain4 hover:bg-bgMain4 p-5 transition-transform ease-in text-bgMain4 hover:text-white ${
+      className={`flex items-center lg:text-xl gap-1 font-medium uppercase cursor-pointer hover:border-b-2 border-bgMain4 hover:bg-bgMain4 p-2 lg:p-5 transition-transform ease-in text-bgMain4 hover:text-white ${
         isActive ? "text-[#f3f3f3] border-b-2 border-bgMain4" : ""
       }`}
       onMouseEnter={() => setActiveMenu(item.id)}
@@ -128,7 +128,7 @@ const MenuItem = ({
     </li>
   ) : (
     <li
-      className={`cursor-pointer hover:border-b-2 text-xl gap-1 font-medium uppercase border-bgMain3 hover:bg-bgMain4 p-5 transition-transform ease-in text-bgMain4 hover:text-white ${
+      className={`cursor-pointer hover:border-b-2 lg:text-xl gap-1 font-medium uppercase border-bgMain3 hover:bg-bgMain4 p-2 lg:p-5 transition-transform ease-in text-bgMain4 hover:text-white ${
         isActive
           ? "text-[#f3f3f3] border-b-2 border-bgMain4 -mt-2 hover:-mt-0"
           : ""

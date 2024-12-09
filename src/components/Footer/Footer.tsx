@@ -46,7 +46,7 @@ const Footer = () => {
             ))}
           </ul>
         </div> */}
-        <div className="justify-center flex">
+        <div className="md:justify-center flex">
           <div className="space-y-4">
             {/* <h2 className="text-xl font- tracking-wide">USEFUL LINKS</h2>
             <div className="w-[100px] h-[1.5px] bg-bgMain3"></div> */}

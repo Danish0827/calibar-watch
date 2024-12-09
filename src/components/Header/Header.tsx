@@ -33,10 +33,10 @@ const Header = () => {
   }, [lastScrollY]);
   return (
     <header
-      className={`w-full h-[100px] md:h-[70px] bg-white flex items-center gap-3 justify-center z-40 sticky top-0 transition-transform duration-300  shadow-sm`}
+      className={`w-full h-[100px] md:h-[50px] lg:h-[70px] bg-white flex items-center gap-3 justify-center z-40 sticky top-0 transition-transform duration-300  shadow-sm`}
     >
       <Wrapper className="md:gap-5 flex justify-between md:justify-center items-center px-0">
-        <div className="lg:hidden">
+        <div className="md:hidden">
           <MobileSearch hasScrolled={true} />
         </div>
         <Link href={"/"} className="flex md:hidden justify-center py-2">
@@ -45,7 +45,7 @@ const Header = () => {
             alt="Our Office"
             height={100}
             width={200}
-            className="w-36 lg:w-44"
+            className="w-36 lg:w-60"
           />
         </Link>
         {lastScrollY ? (
@@ -62,8 +62,7 @@ const Header = () => {
         )}
 
         <Menu showAllMenu={lastScrollY} setShowAllMenu={setShowAllMenu} />
-
-        <div className="hidden lg:block">
+        <div className="hidden md:block">
           <SearchBar hasScrolled={true} />
         </div>
 
