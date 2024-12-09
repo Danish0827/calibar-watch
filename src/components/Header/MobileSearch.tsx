@@ -48,7 +48,7 @@ const MobileSearch = ({ hasScrolled }: { hasScrolled: boolean }) => {
 
   return (
     <>
-      <div className="ml-8">
+      <div className="lg:ml-8">
         <IoSearchOutline
           onClick={() => setShowMobileSearch(true)}
           className={

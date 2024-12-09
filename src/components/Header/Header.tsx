@@ -33,9 +33,9 @@ const Header = () => {
   }, [lastScrollY]);
   return (
     <header
-      className={`w-full h-[100px] px-0 md:h-[70px] bg-white flex items-center gap-3 justify-between md:justify-center z-40 sticky top-0 transition-transform duration-300  shadow-sm`}
+      className={`w-full h-[100px] md:h-[70px] bg-white flex items-center gap-3 justify-center z-40 sticky top-0 transition-transform duration-300  shadow-sm`}
     >
-      {/* <Wrapper className="md:gap-5 flex justify-between md:justify-center items-center"> */}
+      <Wrapper className="md:gap-5 flex justify-between md:justify-center items-center px-0">
         <div className="lg:hidden">
           <MobileSearch hasScrolled={true} />
         </div>
@@ -44,7 +44,7 @@ const Header = () => {
             src="/images/main_logo.png"
             alt="Our Office"
             height={100}
-            width={250}
+            width={200}
             className="w-36 lg:w-44"
           />
         </Link>
@@ -90,7 +90,7 @@ const Header = () => {
             )}
           </div>
         </div>
-      {/* </Wrapper> */}
+      </Wrapper>
     </header>
   );
 };
