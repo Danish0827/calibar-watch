@@ -138,7 +138,6 @@ const MenuItem = ({
     </li>
   );
 };
-
 interface SubMenuListProps {
   subMenuData: SubMenu[];
   activeSubMenu: number | null;
