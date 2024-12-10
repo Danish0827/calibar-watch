@@ -106,36 +106,38 @@ const MenuItem = ({
   const isActive = pathname === item.url;
 
   return item.subMenu ? (
-    <li
-      className={`flex items-center lg:text-xl gap-1 font-medium uppercase cursor-pointer hover:border-b-2 border-bgMain4 hover:bg-bgMain4 p-2 lg:p-5 transition-transform ease-in text-bgMain4 hover:text-white ${
-        isActive ? "text-[#f3f3f3] border-b-2 border-bgMain4" : ""
-      }`}
-      onMouseEnter={() => setActiveMenu(item.id)}
-      onMouseLeave={() => {
-        setActiveMenu(null);
-        setActiveSubMenu(null);
-      }}
-    >
-      {item.name}
-      <BsChevronDown size={14} />
-      {activeMenu === item.id && item.subMenuData && (
-        <SubMenuList
-          subMenuData={item.subMenuData}
-          activeSubMenu={activeSubMenu}
-          setActiveSubMenu={setActiveSubMenu}
-        />
-      )}
-    </li>
+    <div className="group hover:bg-bgMain4">
+      <li
+        className={`flex items-center lg:text-xl gap-1 font-medium uppercase mb-1 mx-3 cursor-pointer border-[80%] hover:border-b-2 border-bgMain4 group-hover:border-white hover:bg-bgMain4 px-2 py-2 lg:px-3 lg:py-5 transition-transform ease-in text-bgMain4 hover:text-white ${
+          isActive ? "text-[#f3f3f3] border-b-2 border-bgMain4" : ""
+        }`}
+        onMouseEnter={() => setActiveMenu(item.id)}
+        onMouseLeave={() => {
+          setActiveMenu(null);
+          setActiveSubMenu(null);
+        }}
+      >
+        {item.name}
+        <BsChevronDown size={14} />
+        {activeMenu === item.id && item.subMenuData && (
+          <SubMenuList
+            subMenuData={item.subMenuData}
+            activeSubMenu={activeSubMenu}
+            setActiveSubMenu={setActiveSubMenu}
+          />
+        )}
+      </li>
+    </div>
   ) : (
-    <li
-      className={`cursor-pointer hover:border-b-2 lg:text-xl gap-1 font-medium uppercase border-bgMain3 hover:bg-bgMain4 p-2 lg:p-5 transition-transform ease-in text-bgMain4 hover:text-white ${
-        isActive
-          ? "text-[#f3f3f3] border-b-2 border-bgMain4 -mt-2 hover:-mt-0"
-          : ""
-      }`}
-    >
-      <Link href={item.url}>{item.name}</Link>
-    </li>
+    <div className="group hover:bg-bgMain4">
+      <li
+        className={`cursor-pointer hover:border-b-2 lg:text-xl gap-1 mb-1 font-medium uppercase border-bgMain3 group-hover:border-white hover:bg-bgMain4 px-2 py-2 lg:px-3 lg:py-5 mx-3 transition-transform ease-in text-bgMain4 hover:text-white ${
+          isActive ? "text-[#f3f3f3] border-b-2 border-bgMain4 " : ""
+        }`}
+      >
+        <Link href={item.url}>{item.name}</Link>
+      </li>
+    </div>
   );
 };
 interface SubMenuListProps {
@@ -149,7 +151,7 @@ const SubMenuList = ({
   activeSubMenu,
   setActiveSubMenu,
 }: SubMenuListProps) => (
-  <ul className="bg-white absolute top-[68px] min-w-[256px] px-2 py-1 text-black shadow-lg z-10">
+  <ul className="bg-white absolute top-[70px] min-w-[256px] px-2 py-1 text-black shadow-lg z-10">
     {subMenuData.map((submenu) => (
       <li
         key={submenu.id}
@@ -159,7 +161,7 @@ const SubMenuList = ({
       >
         <Link
           href={submenu.url || "/"}
-          className="h-12 flex justify-between items-center px-3 hover:bg-black/[0.05] rounded-md"
+          className="h-12 flex text-base justify-between items-center px-3 hover:bg-black/[0.05] rounded-md"
         >
           {submenu.name}
           <TiArrowShuffle size={18} color="black" />

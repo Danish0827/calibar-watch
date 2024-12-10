@@ -71,39 +71,39 @@ const FAQs: React.FC<ProductDataDesc> = ({
       answer:
         shipping_and_return || "Shipping and return information not available.",
     },
-    {
-      id: 4,
-      question: "Share",
-      answer: (
-        <div className="flex gap-10 mt-4 items-center justify-center">
-          <div className="w-10 h-10 bg-[#fafafa] flex justify-center items-center rounded-full">
-            <Link href="#" aria-label="Share on Facebook">
-              <FaFacebookF className="text-black" size={20} />
-            </Link>
-          </div>
-          <div className="w-10 h-10 bg-[#fafafa] flex justify-center items-center rounded-full">
-            <Link href="#" aria-label="Share on Instagram">
-              <GrInstagram className="text-black" size={18} />
-            </Link>
-          </div>
-          <div className="w-10 h-10 bg-[#fafafa] flex justify-center items-center rounded-full">
-            <Link href="#" aria-label="Share on Twitter">
-              <FaXTwitter className="text-black" size={18} />
-            </Link>
-          </div>
-          <div className="w-10 h-10 bg-[#fafafa] flex justify-center items-center rounded-full">
-            <Link href="#" aria-label="Share on Pinterest">
-              <FaPinterestP className="text-black" size={18} />
-            </Link>
-          </div>
-          <div className="w-10 h-10 bg-[#fafafa] flex justify-center items-center rounded-full">
-            <Link href="#" aria-label="Share">
-              <BsShare className="text-black" size={18} />
-            </Link>
-          </div>
-        </div>
-      ),
-    },
+    // {
+    //   id: 4,
+    //   question: "Share",
+    //   answer: (
+    //     <div className="flex gap-10 mt-4 items-center justify-center">
+    //       <div className="w-10 h-10 bg-[#fafafa] flex justify-center items-center rounded-full">
+    //         <Link href="#" aria-label="Share on Facebook">
+    //           <FaFacebookF className="text-black" size={20} />
+    //         </Link>
+    //       </div>
+    //       <div className="w-10 h-10 bg-[#fafafa] flex justify-center items-center rounded-full">
+    //         <Link href="#" aria-label="Share on Instagram">
+    //           <GrInstagram className="text-black" size={18} />
+    //         </Link>
+    //       </div>
+    //       <div className="w-10 h-10 bg-[#fafafa] flex justify-center items-center rounded-full">
+    //         <Link href="#" aria-label="Share on Twitter">
+    //           <FaXTwitter className="text-black" size={18} />
+    //         </Link>
+    //       </div>
+    //       <div className="w-10 h-10 bg-[#fafafa] flex justify-center items-center rounded-full">
+    //         <Link href="#" aria-label="Share on Pinterest">
+    //           <FaPinterestP className="text-black" size={18} />
+    //         </Link>
+    //       </div>
+    //       <div className="w-10 h-10 bg-[#fafafa] flex justify-center items-center rounded-full">
+    //         <Link href="#" aria-label="Share">
+    //           <BsShare className="text-black" size={18} />
+    //         </Link>
+    //       </div>
+    //     </div>
+    //   ),
+    // },
   ];
 
   return (

@@ -110,22 +110,25 @@ const SingleProductDetail2: React.FC<SingleProductDetailProps> = ({
               {/* <div className="w-full mt-4 h-[1px] bg-black/[0.5] self-stretch"></div> */}
 
               <div className="mt-5 md:flex md:flex-row flex-wrap gap-3 ">
-                <button className="bg-black flex items-center gap-2 px-8 py-2 text-white font-semibold tracking-wider uppercase shadow-md rounded-sm md:mb-0 mb-2">
-                  <MailCheck />
-                  Mail
-                </button>
+                <Link href={"mailto:info@caliberstar.com"}>
+                  <button className="bg-black flex items-center gap-2 px-8 py-2 text-white font-semibold tracking-wider uppercase shadow-md rounded-sm md:mb-0 mb-2">
+                    <MailCheck />
+                    Mail
+                  </button>
+                </Link>
 
-                <Link href={"https://wa.me/65 83329221"}>
+                <Link target="_blank" href={"https://wa.me/971507531231"}>
                   <button className="bg-black flex items-center gap-2  px-4 py-2 text-white font-semibold tracking-wider uppercase shadow-md rounded-sm md:mb-0 mb-2">
                     <FaWhatsapp size={24} />
                     Whatsapp
                   </button>
                 </Link>
-
-                <button className="bg-black flex items-center gap-2 px-8 py-2 text-white font-semibold tracking-wider uppercase shadow-md rounded-sm">
-                  <Phone />
-                  Call
-                </button>
+                <Link target="_blank" href={"tel:+971 50 753 1231"}>
+                  <button className="bg-black flex items-center gap-2 px-8 py-2 text-white font-semibold tracking-wider uppercase shadow-md rounded-sm">
+                    <Phone />
+                    Call
+                  </button>
+                </Link>
               </div>
 
               <div className="mt-5 text-center">

@@ -21,7 +21,7 @@ export async function fetchBrandsData(
 
   try {
     const response = await fetch(
-      `${process.env.BACKEND}/wp-json/wp/v2/brands?_fields=id,count,description,name,slug,meta&per_page=${perPage}&page=${page}`
+      `${process.env.BACKEND}/wp-json/wp/v2/brands?_fields=id,count,description,name,slug,meta&per_page=100&page=1`
     );
 
     if (!response.ok) {
