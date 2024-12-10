@@ -53,7 +53,7 @@ const FAQs: React.FC<ProductDataDesc> = ({
     },
     {
       id: 2,
-      question: "Size & Fit",
+      question: "Product Info",
       answer: (
         <div>
           {product_small_description ? (

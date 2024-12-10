@@ -41,7 +41,7 @@ const Header = () => {
         </div>
         <Link href={"/"} className="flex md:hidden justify-center py-2">
           <Image
-            src="/images/main_logo.png"
+            src="/images/main-logo.png"
             alt="Our Office"
             height={100}
             width={200}

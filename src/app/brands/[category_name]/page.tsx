@@ -43,7 +43,7 @@ interface PageProps {
 const Page = async ({ params }: PageProps) => {
   const { category_name } = params;
 
-  const products = await fetchCategoryData(category_name);
+  const products: any = await fetchCategoryData(category_name);
 
   if (products.length === 0) {
     return <ProductCardSkeleton />;

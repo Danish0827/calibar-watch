@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="space-y-5">
           <Link href={"/"}>
             <Image
-              src={"/images/main_logo.png"}
+              src={"/images/main-logo.png"}
               alt="logo"
               height={200}
               width={300}

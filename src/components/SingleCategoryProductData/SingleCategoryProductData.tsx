@@ -25,7 +25,7 @@ const SingleCategoryProductData: React.FC<SingleCategoryProductDataProps> = ({
       <BreadCrumb
         title="Category"
         page="category"
-        image1="/images/slide1.webp"
+        image1="/images/breadImage.jpg"
       />
 
       <Wrapper className="py-12">
