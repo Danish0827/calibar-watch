@@ -100,12 +100,15 @@ const OurBrands = () => {
           </div>
 
           <div
-            className="mt-8 overflow-x-auto scroll-smooth flex gap-5 scrollbar-hidden"
+            className="py-8 pl-4 overflow-x-auto scroll-smooth flex gap-5 scrollbar-hidden"
             ref={scrollRef}
           >
             {brands.map((brand) => (
               <Link href={`/brands/${brand.slug}`} key={brand.id}>
-                <div className="md:min-w-[180px] md:w-[180px] md:h-[180px] min-w-[140px] h-[140px] cursor-pointer">
+                <div
+                  style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}
+                  className="rounded-lg md:min-w-[180px] md:w-[180px] md:h-[180px] min-w-[140px] h-[140px] cursor-pointer"
+                >
                   <img
                     src={brand.meta?.image || "/images/placeholder.jpg"}
                     alt={brand.name}
