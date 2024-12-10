@@ -18,7 +18,6 @@ interface ProductDataDesc {
   product_big_description?: string;
   shipping_and_return?: string;
 }
-
 const FAQs: React.FC<ProductDataDesc> = ({
   product_small_description,
   product_big_description,
