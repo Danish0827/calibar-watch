@@ -6,27 +6,27 @@ import { sendmail } from "./mail";
 
 interface SendFuncProps {
   name: string;
-  surname: string;
+  phone: string;
   email: string;
   message: string;
 }
 
 export const send: React.FC<SendFuncProps> = async ({
   name,
-  surname,
+  phone,
   email,
   message,
 }) => {
   const emailBody = generateEmailTemplate({
     name,
-    surname,
+    phone,
     email,
     message,
   });
 
   try {
     await sendmail({
-      to: "saifalam.st@gmail.com",
+      to: "danishshaikh.st@gmail.com",
       name: "Caliber Star Watches",
       subject: "Enquiry From Caliber Star Watches",
       body: emailBody,

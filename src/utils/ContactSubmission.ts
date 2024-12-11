@@ -5,8 +5,8 @@ export const contactFormSubmission = async (
   message: string
 ) => {
   try {
-    console.log("aditi");
-    console.log(process.env.BACKEND, "backend");
+    // console.log("aditi");
+    // console.log(process.env.BACKEND, "backend");
     const response = await fetch(
       `${process.env.BACKEND}/wp-json/contact-form/v1/submit`,
       {

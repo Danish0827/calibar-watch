@@ -33,7 +33,7 @@ const Header = () => {
   }, [lastScrollY]);
   return (
     <header
-      className={`zilla-slab-light w-full h-[100px] md:h-[50px] lg:h-[70px] bg-white flex items-center gap-3 justify-center z-40 sticky top-0 transition-transform duration-300  shadow-sm`}
+      className={`zilla-slab-light w-full h-[100px] md:h-[60px] lg:h-[70px] bg-white flex items-center gap-3 justify-center z-40 sticky top-0 transition-transform duration-300  shadow-sm`}
     >
       <Wrapper className="md:gap-5 flex justify-between md:justify-center items-center px-0">
         <div className="md:hidden">

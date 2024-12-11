@@ -56,7 +56,7 @@ const AppointmentLinks = ({ className }: { className: string }) => (
 // SkeletonLoader component for loading state
 const SkeletonLoader = () => (
   <div className="space-y-4 p-7">
-    {Array.from({ length: 16 }).map((_, index) => (
+    {Array.from({ length: 13 }).map((_, index) => (
       <div
         key={index}
         className="w-full h-4 bg-gray-300 rounded-md animate-pulse"
@@ -93,7 +93,7 @@ const FloatingAppointment = () => {
       {show === true && (
         <>
           {/* Large screen button */}
-          <div className="flex gap-3 items-center cursor-pointer fixed -right-[110px] md:-right-[40px] z-50 shadow-lg -rotate-90 px-7 md:px-3 md:pr-0 py-2 rounded-t-xl bottom-[50%] bg-bgMain4 ">
+          <div className="flex gap-3 items-center cursor-pointer fixed -right-[70px] md:-right-[40px] z-50 shadow-lg -rotate-90 px-7 md:px-3 md:pr-0 py-2 rounded-t-xl bottom-[60%] bg-bgMain4 ">
             <h2 onClick={handleAppointmentClick} className="text-white text-lg">
               Inquiry Now
             </h2>
@@ -121,7 +121,7 @@ const FloatingAppointment = () => {
       <Modal
         title={
           <span className="relative top-3 left-5 mx-3 my-3 text-bgMain4 text-xl font-bold uppercase">
-             Inquiry Now
+            Inquiry Now
           </span>
         }
         centered

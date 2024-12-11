@@ -102,8 +102,8 @@ const Footer = () => {
           <div className="w-full h-[1px] bg-black/10"></div>
           <div className="space-y-2">
             <h2 className="text-lg font-medium">CONTACT</h2>
-            <a href="tel:+918087010270" className="text-sm tracking-wide">
-              +65 8332 9221
+            <a href="tel:+971 50 753 1231" className="text-sm tracking-wide">
+              +971 50 753 1231
             </a>
           </div>
         </div>

@@ -273,3 +273,6 @@ body {
 .ant-modal-content {
   padding: 0 !important;
 }
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}

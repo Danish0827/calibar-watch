@@ -1,3 +1,4 @@
+"use client";
 import Wrapper from "../Wrapper/Wrapper";
 import Image from "next/image";
 import { FiChevronsRight } from "react-icons/fi";
@@ -11,6 +12,9 @@ import { MailCheck, Phone } from "lucide-react";
 import ProductCardSkeleton from "../ProductCardSkeleton/ProductCardSkeleton";
 import GallerySkeleton from "../ProductCardSkeleton/GallerySkeleton";
 import Link from "next/link";
+import { useState } from "react";
+import { Modal } from "antd";
+import ContactForm from "../ContactPage/ContactForm";
 
 const OPTIONS: EmblaOptionsType = {};
 
@@ -37,6 +41,29 @@ const SingleProductDetail2: React.FC<SingleProductDetailProps> = ({
     shipping_and_return,
   } = productDataBySlug;
 
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  // Show loading and open modal
+  const handleAppointmentClick = () => {
+    setIsOpen(true);
+    setIsLoading(true);
+
+    // Simulate loading delay
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  };
+  const SkeletonLoader = () => (
+    <div className="space-y-4 p-7">
+      {Array.from({ length: 13 }).map((_, index) => (
+        <div
+          key={index}
+          className="w-full h-4 bg-gray-300 rounded-md animate-pulse"
+        ></div>
+      ))}
+    </div>
+  );
   return (
     <>
       <div>
@@ -110,14 +137,39 @@ const SingleProductDetail2: React.FC<SingleProductDetailProps> = ({
               {/* <div className="w-full mt-4 h-[1px] bg-black/[0.5] self-stretch"></div> */}
 
               <div className="mt-5 md:flex md:flex-row flex-wrap gap-3 ">
-                <Link href={"mailto:info@caliberstar.com"}>
-                  <button className="bg-black flex items-center gap-2 px-8 py-2 text-white font-semibold tracking-wider uppercase shadow-md rounded-sm md:mb-0 mb-2">
-                    <MailCheck />
-                    Mail
-                  </button>
-                </Link>
+                {/* <Link href={"mailto:info@caliberstar.com"}> */}
+                <button
+                  onClick={handleAppointmentClick}
+                  className="bg-black flex items-center gap-2 px-8 py-2 text-white font-semibold tracking-wider uppercase shadow-md rounded-sm md:mb-0 mb-2"
+                >
+                  <MailCheck />
+                  Mail
+                </button>
+                {/* </Link> */}
+                <Modal
+                  title={
+                    <span className="relative top-3 left-5 mx-3 my-3 text-bgMain4 text-xl font-bold uppercase">
+                      Inquiry Now
+                    </span>
+                  }
+                  centered
+                  footer={null}
+                  open={isOpen}
+                  onCancel={() => setIsOpen(false)}
+                >
+                  {isLoading ? (
+                    <SkeletonLoader />
+                  ) : (
+                    <div className="bg-black p-[60px] h-auto w-full mt-6">
+                      <ContactForm />
+                    </div>
+                  )}
+                </Modal>
 
-                <Link target="_blank" href={"https://wa.me/971507531231"}>
+                <Link
+                  target="_blank"
+                  href={`https://wa.me/971507531231?text=Hello%2C%0D%0AI%27m+interested+in+${product_title}`}
+                >
                   <button className="bg-black flex items-center gap-2  px-4 py-2 text-white font-semibold tracking-wider uppercase shadow-md rounded-sm md:mb-0 mb-2">
                     <FaWhatsapp size={24} />
                     Whatsapp

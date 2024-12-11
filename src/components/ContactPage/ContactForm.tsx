@@ -6,14 +6,14 @@ import { send } from "@/utils/ContactMail";
 
 interface FormData {
   name: string;
-  surname: string;
+  phone: string;
   email: string;
   message: string;
 }
 
 interface Errors {
   name?: string;
-  surname?: string;
+  phone?: string;
   email?: string;
   message?: string;
 }
@@ -21,7 +21,7 @@ interface Errors {
 const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
-    surname: "",
+    phone: "",
     email: "",
     message: "",
   });
@@ -39,7 +39,7 @@ const ContactForm = () => {
   const validateForm = (): boolean => {
     const newErrors: Errors = {};
     if (!formData.name) newErrors.name = "Name is required";
-    if (!formData.name) newErrors.name = "Surname is required";
+    if (!formData.name) newErrors.name = "phone is required";
     if (!formData.email) newErrors.email = "Email is required";
     if (!formData.message) newErrors.message = "Message is required";
     if (Object.keys(newErrors).length > 0) {
@@ -56,12 +56,12 @@ const ContactForm = () => {
     if (validateForm()) {
       setSubmitting(true);
 
-      const { name, surname, email, message } = formData;
-      if (name && surname && email && message) {
+      const { name, phone, email, message } = formData;
+      if (name && phone && email && message) {
         try {
           const response = await contactFormSubmission(
             name,
-            surname,
+            phone,
             email,
             message
           );
@@ -85,7 +85,7 @@ const ContactForm = () => {
 
             const mailSent = await send({
               name,
-              surname,
+              phone,
               email,
               message,
             });
@@ -105,7 +105,7 @@ const ContactForm = () => {
 
               setFormData({
                 name: "",
-                surname: "",
+                phone: "",
                 email: "",
                 message: "",
               });
@@ -125,7 +125,7 @@ const ContactForm = () => {
   return (
     <>
       <form onSubmit={handleContactFormSubmit}>
-        <div className="flex md:flex-row flex-col gap-[20px] mb-4">
+        <div className="mb-4">
           <input
             placeholder="Name"
             name="name"
@@ -134,16 +134,17 @@ const ContactForm = () => {
             type="text"
             className="w-full md:px-[20px] px-1 py-[10px]  bg-transparent border-gray-100 border-b-2 text-white focus:outline-none "
           />
+        </div>
+        <div className="mb-4">
           <input
-            placeholder="Surname"
-            name="surname"
-            value={formData.surname}
+            placeholder="Phone"
+            name="phone"
+            value={formData.phone}
             onChange={handleChange}
-            type="text"
+            type="number"
             className="w-full md:px-[20px] px-1 py-[10px] bg-transparent border-gray-100 border-b-2 text-white focus:outline-none"
           />
         </div>
-
         <div className="mb-4">
           <input
             type="email"

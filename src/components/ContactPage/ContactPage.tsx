@@ -56,12 +56,11 @@ const ContactPage = () => {
           <div className="my-10">
             <div className="flex md:flex-row flex-col ">
               <div className="md:w-1/2 w-full">
-                <Image
+                <img
                   src="/images/contact2.jpg"
-                  layout="responsive"
                   width={700}
-                  height={500}
-                  className="object-cover"
+                  height={600}
+                  className="object-cover h-full"
                   alt="contact_img"
                 />
               </div>
@@ -92,7 +91,7 @@ const ContactPage = () => {
                 <div className="ml-4">
                   <h3 className="text-base text-bgMain ">Reach out to us at</h3>
                   <h4 className="text-2xl text-white">
-                    <Link href="tel:+6583329221">Phone: +65 8332 9221</Link>
+                    <Link href="tel:+971 50 753 1231">Phone: +971 50 753 1231</Link>
                   </h4>
                 </div>
               </div>

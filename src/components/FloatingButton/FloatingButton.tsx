@@ -13,21 +13,21 @@ const FloatingButton = () => {
       </div>
       <a
         target="_blank"
-        href={"https://wa.me/7506118519"}
+        href={"https://wa.me/971507531231"}
         className="absolute rounded-full transition-all cursor-pointer duration-[0.2s] ease-out scale-y-0 group-hover:scale-y-100 group-hover:-translate-x-16   flex  p-2.5 hover:p-3 bg-green-500 scale-100 hover:bg-green-400 text-white"
       >
         <FaWhatsapp className="text-2xl" />
       </a>
       <a
         target="_blank"
-        href={"tel:7506118519"}
+        href={"tel:+971 50 753 1231"}
         className="absolute rounded-full transition-all cursor-pointer duration-[0.2s] ease-out scale-x-0 group-hover:scale-x-100 group-hover:-translate-y-16  flex  p-2.5 hover:p-3 bg-blue-500 hover:bg-blue-400  text-white"
       >
         <MdCall className="text-2xl" />
       </a>
       <a
         target="_blank"
-        href={"info@caliberstar.com"}
+        href={"mailto:info@caliberstar.com"}
         className="absolute rounded-full transition-all cursor-pointer duration-[0.2s] ease-out scale-x-0 group-hover:scale-x-100 group-hover:-translate-y-14 group-hover:-translate-x-14   flex  p-2.5 hover:p-3 bg-red-500 hover:bg-red-400 text-white"
       >
         <CgMail className="text-2xl" />
