@@ -5,11 +5,11 @@ import React from "react";
 const ContactSectionHome = () => {
   return (
     <div
-      className="w-full md:h-[500px] h-auto relative flex items-center justify-left"
+      className="w-full h-[500px] relative flex items-center justify-left"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/contactHome.jpg')`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center left",
       }}
     >
       <div className="text-center md:text-left px-6 md:px-20">
