@@ -8,9 +8,6 @@ import EmblaThumbnail from "../EmblaThumbnail/EmblaThumbnail";
 import "../EmblaThumbnail/emblaThumb.css";
 import { FaWhatsapp } from "react-icons/fa";
 import { MailCheck, Phone } from "lucide-react";
-
-import ProductCardSkeleton from "../ProductCardSkeleton/ProductCardSkeleton";
-import GallerySkeleton from "../ProductCardSkeleton/GallerySkeleton";
 import Link from "next/link";
 import { useState } from "react";
 import { Modal } from "antd";
@@ -24,6 +21,16 @@ export interface ProductData {
   product_big_description?: string;
   gallery_images?: string[];
   shipping_and_return?: string;
+  main_image_primary?: string | any;
+  brand?: string;
+  model?: string;
+  "case-diameter"?: string;
+  "case-material"?: string;
+  "dial-type"?: string;
+  bezel?: string;
+  bracelet?: string;
+  movement?: string;
+  "water-resistance"?: string;
 }
 
 interface SingleProductDetailProps {
@@ -32,28 +39,21 @@ interface SingleProductDetailProps {
 
 const SingleProductDetail2: React.FC<SingleProductDetailProps> = ({
   productDataBySlug,
-}) => {
-  const {
-    product_title,
-    product_small_description,
-    product_big_description,
-    gallery_images,
-    shipping_and_return,
-  } = productDataBySlug;
+}: any) => {
+  console.log(productDataBySlug);
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  // Show loading and open modal
   const handleAppointmentClick = () => {
     setIsOpen(true);
     setIsLoading(true);
 
-    // Simulate loading delay
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
   };
+
   const SkeletonLoader = () => (
     <div className="space-y-4 p-7">
       {Array.from({ length: 13 }).map((_, index) => (
@@ -64,88 +64,96 @@ const SingleProductDetail2: React.FC<SingleProductDetailProps> = ({
       ))}
     </div>
   );
+
   return (
     <>
       <div>
         <Wrapper className="md:py-12 py-8">
-          <div className="w-full md:flex md:flex-row flex-col gap-6 md:px-4 px-2">
-            <div className="md:w-[65%] w-full md:block hidden space-y-4">
-              <GallerySkeleton loading={!gallery_images} />
-
-              <div className="grid md:grid-cols-2 gap-2">
-                {gallery_images &&
-                  gallery_images.map((image: string, index: number) => (
-                    <div className="aspect-[4/5]" key={index}>
-                      <Image
-                        src={image}
-                        width={458}
-                        height={572}
-                        alt={`Gallery image ${index + 1}`}
-                      />
-                    </div>
-                  ))}
-              </div>
-            </div>
-
-            <div className="md:w-1/2 w-full space-y-4 md:hidden block">
-              {gallery_images && gallery_images.length > 0 ? (
-                <EmblaThumbnail
-                  options={OPTIONS}
-                  variationImage={
-                    gallery_images[0] || "/path/to/default/image.jpg"
-                  }
-                  gallery={gallery_images.map((src, index) => ({
-                    id: index + 1,
-                    src,
-                    alt: `Gallery image ${index + 1}`,
-                  }))}
-                />
-              ) : (
-                <div className="w-full h-[400px] bg-gray-200 flex justify-center items-center">
-                  <ProductCardSkeleton />
-                </div>
-              )}
-            </div>
-
-            <div className="md:w-[35%] w-full md:mt-0 mt-9 h-full sticky top-24">
-              <div className="mb-3">
-                <ul className="flex items-center text-sm justify-start gap-1 pt-2">
-                  <li>
-                    <span className="text-bgMain3 font-medium uppercase">
-                      Home
-                    </span>
-                  </li>
-                  <FiChevronsRight size={19} color="black" />
-                  <li className="text-black uppercase">Watches</li>
-                  <FiChevronsRight size={19} color="black" />
-                  <li className="text-black uppercase">{product_title}</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-2xl font-semibold  text-gray-900">
-                  {product_title}
-                </h3>
-              </div>
-
-              <FAQs
-                product_small_description={product_small_description}
-                product_big_description={product_big_description}
-                shipping_and_return={shipping_and_return}
+          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            {/* Product Image */}
+            <div className="flex justify-center">
+              <Image
+                src={productDataBySlug.meta.main_image_primary}
+                width={458}
+                height={572}
+                alt="Product Image"
+                className="rounded-lg lg:scale-150"
               />
+            </div>
 
-              {/* <div className="w-full mt-4 h-[1px] bg-black/[0.5] self-stretch"></div> */}
+            {/* Product Details */}
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold text-gray-900">
+                Product Details
+              </h2>
+              <ul className="space-y-2 text-gray-700">
+                <li>
+                  <span className="font-semibold">Brand: </span>
+                  {productDataBySlug.meta.brand}
+                </li>
+                <li>
+                  <span className="font-semibold">Model: </span>
+                  {productDataBySlug.meta.model}
+                </li>
+                <li>
+                  <span className="font-semibold">Case Diameter: </span>
+                  {productDataBySlug.meta["case-diameter"]}
+                </li>
+                <li>
+                  <span className="font-semibold">Case Material: </span>
+                  {productDataBySlug.meta["case-material"]}
+                </li>
+                <li>
+                  <span className="font-semibold">Dial Color: </span>
+                  {productDataBySlug.meta["dial-type"]}
+                </li>
+                <li>
+                  <span className="font-semibold">Bezel: </span>
+                  {productDataBySlug.meta.bezel}
+                </li>
+                <li>
+                  <span className="font-semibold">Bracelet: </span>
+                  {productDataBySlug.meta.bracelet}
+                </li>
+                <li>
+                  <span className="font-semibold">Movement: </span>
+                  {productDataBySlug.meta.movement}
+                </li>
+                <li>
+                  <span className="font-semibold">Water Resistance: </span>
+                  {productDataBySlug.meta["water-resistance"]}
+                </li>
+              </ul>
+            </div>
 
-              <div className="mt-5 md:flex md:flex-row flex-wrap gap-3 ">
-                {/* <Link href={"mailto:info@caliberstar.com"}> */}
+            {/* Action Section */}
+            <div className="space-y-4">
+              {/* Breadcrumbs */}
+              <ul className="flex items-center text-sm text-gray-600 gap-2">
+                <li>
+                  <Link href="/" className="text-bgMain3 font-medium uppercase">
+                    Home
+                  </Link>
+                </li>
+                <FiChevronsRight size={19} color="black" />
+                <li>{productDataBySlug.meta.brand}</li>
+                <FiChevronsRight size={19} color="black" />
+                <li>{productDataBySlug.meta.product_title}</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-gray-900">
+                {productDataBySlug.meta.product_title}
+              </h3>
+
+              {/* Buttons */}
+              <div className="block mb-3">
                 <button
                   onClick={handleAppointmentClick}
-                  className="bg-black flex items-center gap-2 px-8 py-2 text-white font-semibold tracking-wider uppercase shadow-md rounded-sm md:mb-0 mb-2"
+                  className="bg-black text-white flex items-center gap-2 px-6 py-3 font-semibold rounded-md shadow-md hover:bg-gray-800 transition"
                 >
-                  <MailCheck />
+                  <MailCheck size={20} />
                   Mail
                 </button>
-                {/* </Link> */}
                 <Modal
                   title={
                     <span className="relative top-3 left-5 mx-3 my-3 text-bgMain4 text-xl font-bold uppercase">
@@ -168,26 +176,20 @@ const SingleProductDetail2: React.FC<SingleProductDetailProps> = ({
 
                 <Link
                   target="_blank"
-                  href={`https://wa.me/971507531231?text=Hello%2C%0D%0AI%27m+interested+in+${product_title}`}
+                  href={`https://wa.me/971507531231?text=Hello%2C%0D%0AI%27m+interested+in+${productDataBySlug.meta.product_title}`}
                 >
-                  <button className="bg-black flex items-center gap-2  px-4 py-2 text-white font-semibold tracking-wider uppercase shadow-md rounded-sm md:mb-0 mb-2">
-                    <FaWhatsapp size={24} />
+                  <button className="bg-green-600 text-white flex items-center gap-2 px-6 py-3 font-semibold rounded-md shadow-md hover:bg-green-500 transition">
+                    <FaWhatsapp size={20} />
                     Whatsapp
                   </button>
                 </Link>
-                <Link target="_blank" href={"tel:+971 50 753 1231"}>
-                  <button className="bg-black flex items-center gap-2 px-8 py-2 text-white font-semibold tracking-wider uppercase shadow-md rounded-sm">
-                    <Phone />
+
+                {/* <Link target="_blank" href="tel:+971507531231">
+                  <button className="bg-black text-white flex items-center gap-2 px-6 py-3 font-semibold rounded-md shadow-md hover:bg-gray-800 transition">
+                    <Phone size={20} />
                     Call
                   </button>
-                </Link>
-              </div>
-
-              <div className="mt-5 text-center">
-                <p className="text-sm text-gray-500">
-                  Our experts are ready to assist you with any questions. Get in
-                  touch to learn more about this exquisite timepiece!
-                </p>
+                </Link> */}
               </div>
             </div>
           </div>

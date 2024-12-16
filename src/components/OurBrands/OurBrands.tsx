@@ -72,14 +72,14 @@ const OurBrands = () => {
   }
 
   return (
-    <div className="bg-[#f1f1f1] pt-10 pb-6 md:px-4">
+    <div className="bg-[#8c7a66] pt-10 pb-6 md:px-4">
       <Wrapper>
         <div>
           <div className="flex justify-between items-center">
             {/* <h3 className="text-black md:text-4xl font-semibold text-2xl relative after:content-[''] after:block after:h-[3px] after:bg-gradient-to-r from-gray-500 to-black after:w-1/2 after:mt-2 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full rounded-lg">
               Our Brands
             </h3> */}
-            <h3 className="text-black md:text-4xl font-semibold text-2xl relative after:content-[''] after:block after:h-[3px] after:bg-gradient-to-r from-gray-500 to-black after:w-1/2 after:mt-2 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full rounded-lg mb-2">
+            <h3 className="text-white md:text-4xl font-semibold text-2xl relative after:content-[''] after:block after:h-[3px] after:bg-gradient-to-r from-[#8c7a66] to-[#fff] after:w-1/2 after:mt-2 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full rounded-lg mb-2">
               Our Brands
             </h3>
 
@@ -112,7 +112,7 @@ const OurBrands = () => {
                   <img
                     src={brand.meta?.image || "/images/placeholder.jpg"}
                     alt={brand.name}
-                    className="w-full h-full object-cover rounded-md"
+                    className="w-full h-full object-cover bg-white rounded-lg"
                   />
                 </div>
               </Link>

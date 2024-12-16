@@ -64,11 +64,11 @@ const NewArrivalSection = () => {
   };
 
   return (
-    <div className="bg-[#f1f1f1] pt-12 pb-8 md:px-4 overflow-hidden">
+    <div className="bg-[#8c7a66] pt-12 pb-8 md:px-4 overflow-hidden">
       <Wrapper>
         <div>
           <div className="flex justify-center items-center">
-            <h3 className="text-black md:text-4xl font-semibold text-2xl relative after:content-[''] after:block after:h-[3px] after:bg-gradient-to-r from-gray-500 to-black after:w-1/2 after:mt-2 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full rounded-lg mb-2">
+            <h3 className="text-white md:text-4xl font-semibold text-2xl relative after:content-[''] after:block after:h-[3px] after:bg-gradient-to-r from-[#8c7a66] to-[#fff] after:w-1/2 after:mt-2 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full rounded-lg mb-2">
               New Arrivals
             </h3>
 
@@ -99,7 +99,7 @@ const NewArrivalSection = () => {
                     .fill(null)
                     .map((_, i) => (
                       <div
-                        className="embla__slide flex-shrink-0 basis-[calc(100%/2)] md:basis-[calc(100%/3)] lg:basis-[calc(100%/5)]"
+                        className="embla__slide flex-shrink-0 basis-[calc(100%/2)] md:basis-[calc(100%/3)] lg:basis-[calc(100%/7)]"
                         key={i}
                       >
                         <ProductCardSkeleton />
@@ -107,7 +107,7 @@ const NewArrivalSection = () => {
                     ))
                 : data.map((product, index) => (
                     <div
-                      className=" flex-shrink-0 basis-[calc(100%/2)] md:basis-[calc(100%/3)] lg:basis-[calc(100%/6)]"
+                      className=" flex-shrink-0 basis-[calc(100%/2)] md:basis-[calc(100%/3)] lg:basis-[calc(100%/7)]"
                       key={index}
                     >
                       <NewArrivalCard data={product} />

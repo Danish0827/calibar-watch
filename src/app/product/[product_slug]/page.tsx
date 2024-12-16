@@ -13,6 +13,18 @@ export interface ProductData {
   product_big_description?: string;
   gallery_images?: string[];
   shipping_and_return?: string;
+  brand?: string;
+  model?: string;
+  case_diameter?: string;
+  case_material?: string;
+  dial_color?: string;
+  dial_type?: string;
+  bezel?: string;
+  bracelet?: string;
+  movement?: string;
+  water_resistance?: string;
+  main_image_primary?: string;
+  main_image_secondary?: string;
 }
 
 interface SlugPropsDataResponse {
@@ -34,7 +46,7 @@ export async function slugPropsData(
 
     const data = await response.json();
 
-    return { product: data.meta || null };
+    return { product: data || null };
   } catch (error) {
     console.error("Error fetching product data:", error);
     return { product: null };
@@ -50,8 +62,6 @@ interface PageProps {
 const Page = async ({ params }: PageProps) => {
   const { product_slug } = params;
   const { product } = await slugPropsData(product_slug);
-
-  console.log(product, "saifdata");
 
   if (!product) {
     return (

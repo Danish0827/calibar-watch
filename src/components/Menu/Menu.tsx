@@ -4,8 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BsChevronDown } from "react-icons/bs";
 import { TiArrowShuffle } from "react-icons/ti";
-import { BrandData, fetchBrandsData } from "@/utils/ApiUtils";
 import { Search } from "lucide-react";
+import { BrandData, fetchBrandsData } from "@/utils/ApiUtils";
 
 interface InnerPage {
   id: number;
@@ -22,10 +22,9 @@ interface SubMenu {
 
 interface MenuProps {
   showAllMenu: boolean;
-  setShowAllMenu: (show: boolean) => void;
 }
 
-const Menu = ({ showAllMenu }: any) => {
+const Menu: React.FC<MenuProps> = ({ showAllMenu }) => {
   const pathname = usePathname();
   const [activeMenu, setActiveMenu] = useState<number | null>(null);
   const [activeSubMenu, setActiveSubMenu] = useState<number | null>(null);
@@ -65,13 +64,13 @@ const Menu = ({ showAllMenu }: any) => {
     { id: 4, name: "Contact", url: "/contact" },
   ];
 
-  const menu = showAllMenu
+  const menuItems = showAllMenu
     ? menuData.filter((item) => item.id !== 1)
     : menuData;
 
   return (
     <ul className="hidden md:flex items-center gap-8 font-sm text-black">
-      {menu.map((item) => (
+      {menuItems.map((item) => (
         <MenuItem
           key={item.id}
           item={item}
@@ -95,27 +94,30 @@ interface MenuItemProps {
   setActiveSubMenu: (id: number | null) => void;
 }
 
-const MenuItem = ({
+const MenuItem: React.FC<MenuItemProps> = ({
   item,
   pathname,
   activeMenu,
   setActiveMenu,
   activeSubMenu,
   setActiveSubMenu,
-}: MenuItemProps) => {
+}) => {
   const isActive = pathname === item.url;
 
+  const handleMouseEnter = () => setActiveMenu(item.id);
+  const handleMouseLeave = () => {
+    setActiveMenu(null);
+    setActiveSubMenu(null);
+  };
+
   return item.subMenu ? (
-    <div className="group hover:bg-bgMain4">
+    <div className="group hover:bg-bgMain4 hover:text-white">
       <li
-        className={`flex items-center lg:text-xl gap-1 font-medium uppercase mb-1 mx-3 cursor-pointer border-[80%] hover:border-b-2 border-bgMain4 group-hover:border-white hover:bg-bgMain4 px-2 py-2 lg:px-3 lg:py-5 transition-transform ease-in text-bgMain4 hover:text-white ${
+        className={`flex items-center lg:text-xl gap-1 font-medium uppercase mx-3 cursor-pointer border-[80%] hover:border-b-2 border-bgMain4 group-hover:border-white hover:bg-bgMain4 px-2 py-2 lg:px-3 lg:py-5 transition-transform ease-in text-bgMain4 group-hover:text-white ${
           isActive ? "text-[#f3f3f3] border-b-2 border-bgMain4" : ""
         }`}
-        onMouseEnter={() => setActiveMenu(item.id)}
-        onMouseLeave={() => {
-          setActiveMenu(null);
-          setActiveSubMenu(null);
-        }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         {item.name}
         <BsChevronDown size={14} />
@@ -129,9 +131,9 @@ const MenuItem = ({
       </li>
     </div>
   ) : (
-    <div className="group hover:bg-bgMain4">
+    <div className="group hover:bg-bgMain4 hover:text-white">
       <li
-        className={`cursor-pointer hover:border-b-2 lg:text-xl gap-1 mb-1 font-medium uppercase border-bgMain3 group-hover:border-white hover:bg-bgMain4 px-2 py-2 lg:px-3 lg:py-5 mx-3 transition-transform ease-in text-bgMain4 hover:text-white ${
+        className={`cursor-pointer hover:border-b-2 lg:text-xl gap-1 font-medium uppercase border-bgMain3 group-hover:border-white hover:bg-bgMain4 px-2 py-2 lg:px-3 lg:py-5 mx-3 transition-transform ease-in text-bgMain4 group-hover:text-white ${
           isActive ? "text-[#f3f3f3] border-b-2 border-bgMain4 " : ""
         }`}
       >
@@ -140,17 +142,18 @@ const MenuItem = ({
     </div>
   );
 };
+
 interface SubMenuListProps {
   subMenuData: SubMenu[];
   activeSubMenu: number | null;
   setActiveSubMenu: (id: number | null) => void;
 }
 
-const SubMenuList = ({
+const SubMenuList: React.FC<SubMenuListProps> = ({
   subMenuData,
   activeSubMenu,
   setActiveSubMenu,
-}: SubMenuListProps) => (
+}) => (
   <ul className="bg-white absolute top-[70px] min-w-[256px] px-2 py-1 text-black shadow-lg z-10">
     {subMenuData.map((submenu) => (
       <li
@@ -178,7 +181,7 @@ interface InnerPagesListProps {
   innerPages: InnerPage[];
 }
 
-const InnerPagesList = ({ innerPages }: InnerPagesListProps) => (
+const InnerPagesList: React.FC<InnerPagesListProps> = ({ innerPages }) => (
   <div className="absolute left-full top-0 w-[250px] bg-white rounded-[3px] shadow-lg">
     <ul className="py-2">
       {innerPages.map((page) => (

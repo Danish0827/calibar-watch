@@ -28,7 +28,7 @@ const AnnouncementBar = () => {
       <Wrapper>
         <Link href={"/"} className="md:flex hidden justify-center py-4">
           <Image
-            src={"/images/main-logo.png"}
+            src={"/images/mainlogo.png"}
             alt="Our Office"
             height={130}
             width={250}

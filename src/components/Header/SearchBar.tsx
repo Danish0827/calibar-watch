@@ -118,7 +118,7 @@ const SearchBar = ({ hasScrolled }: { hasScrolled: boolean }) => {
     <>
       <li
         onClick={handleSearchBar}
-        className={`${showSearchBar && 'bg-bgMain4 border-b-2 border-bgMain3'} list-none group cursor-pointer hover:border-b-2 border-bgMain3 hover:bg-bgMain4 p-6 transition-transform ease-in text-bgMain4 hover:text-white `}
+        className={`${showSearchBar && 'bg-bgMain4 border-b-2 border-bgMain4'} list-none group cursor-pointer hover:border-b-2 border-bgMain4 hover:bg-bgMain4 p-6 transition-transform ease-in text-bgMain4 hover:text-white `}
       >
         <Link
           href=""

@@ -12,9 +12,9 @@ import MobileSearch from "./MobileSearch";
 
 const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
-  const [showAllMenu, setShowAllMenu] = useState(false);
+  const [showAllMenu, setShowAllMenu] = useState<any>(false);
   const [show, setShow] = useState("translate-y-0");
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [lastScrollY, setLastScrollY] = useState<any>(0);
 
   const controlNavBar = () => {
     window.scrollY > 200
@@ -41,7 +41,7 @@ const Header = () => {
         </div>
         <Link href={"/"} className="flex md:hidden justify-center py-2">
           <Image
-            src="/images/main-logo.png"
+            src="/images/mainlogo.png"
             alt="Our Office"
             height={100}
             width={200}
@@ -51,7 +51,7 @@ const Header = () => {
         {lastScrollY ? (
           <Link href={"/"} className="md:flex hidden">
             <Image
-              src="/images/logo-icon.png"
+              src="/images/logoicon.png"
               alt="Our Office"
               height={60}
               width={60}
@@ -61,7 +61,8 @@ const Header = () => {
           ""
         )}
 
-        <Menu showAllMenu={lastScrollY} setShowAllMenu={setShowAllMenu} />
+        <Menu showAllMenu={lastScrollY} />
+        {/* setShowAllMenu={setShowAllMenu}  */}
         <div className="hidden md:block">
           <SearchBar hasScrolled={true} />
         </div>

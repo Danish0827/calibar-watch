@@ -1,122 +1,149 @@
 "use client";
-import { allProducts } from "@/utils/allProducts";
 import { menuItem } from "@/utils/MenuItem";
 import { defaultDescription } from "@/utils/utilsimp";
-import { ChevronRight, Dot } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import RequestAppointment from "./FloatingAppointment";
+import { useEffect, useState } from "react";
+import { BrandData, fetchBrandsData } from "@/utils/ApiUtils";
 
 const Footer = () => {
+  const [brands, setBrands] = useState<BrandData[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { brands } = await fetchBrandsData(1);
+        setBrands(brands);
+        console.log(brands, "dfsfdsf");
+      } catch (error) {
+        console.error("Error fetching brands:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
   return (
-    <div className="bg-bgMain">
-      <div className="sacontainer  md:px-14  text-black py-6 md:py-8 lg:py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-5">
+    <footer className="bg-bgMain text-black">
+      {/* Main Footer Content */}
+      <div className="sacontainer md:px-14 py-6 md:py-8 lg:py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {/* Logo and Description */}
         <div className="space-y-5">
-          <Link href={"/"}>
+          <Link href="/">
             <Image
-              src={"/images/main-logo.png"}
+              src="/images/mainlogo.png"
               alt="logo"
               height={200}
               width={300}
               className="w-[80%] object-contain"
             />
           </Link>
-          {/* <h2 className="text-[18px] lg:text-[25px] leading-none tracking-wide uppercase font-medium">
-            Caliber Star Watches
-          </h2> */}
           <p className="text-sm font-light text-justify">
             {defaultDescription}
           </p>
         </div>
 
-        {/* <div className="space-y-4">
-          <h2 className="text-xl font- tracking-wide">OUR PRODUCTS</h2>
-          <div className="w-[100px] h-[1.5px] bg-bgMain3"></div>
-          <ul className="space-y-3 md:space-y-4 text-sm font-light">
-            {allProducts.map((item, index) => (
-              <li key={index}>
-                <Link
-                  href={`${item.link}`}
-                  className="hover:text-templateOrange hover:pl-2 transition-all ease"
-                >
-                  {item.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div> */}
-        <div className="md:justify-center flex">
-          <div className="space-y-4">
-            {/* <h2 className="text-xl font- tracking-wide">USEFUL LINKS</h2>
-            <div className="w-[100px] h-[1.5px] bg-bgMain3"></div> */}
-            <h2 className="text-xl font- tracking-wide">USEFUL LINKS</h2>
-            <div className="w-[100px] h-[1.5px] bg-bgMain3"></div>
+        {/* Useful Links Section */}
+        <div className="flex md:justify-center">
+          <div className="space-y-3">
+            <h2 className="text-xl font-medium tracking-wide">USEFUL LINKS</h2>
+            <div className="w-[100px] h-[1.5px] bg-bgMain4"></div>
             <ul className="space-y-2 md:space-y-3 text-sm font-light">
               {menuItem.map((item, index) => (
                 <li key={index}>
                   <Link
-                    className="hover:text-templateOrange hover:pl-2 transition-all ease"
                     href={item.url}
+                    className="hover:text-bgMain4 hover:pl-1 font-medium transition-all ease"
                   >
                     {item.name}
                   </Link>
                 </li>
               ))}
-              {/* <li>
-              <Link
-                className=" hover:text-templateOrange hover:pl-2 transition-all ease"
-                href={"/sitemap.xml"}
-              >
-                Sitemap
-              </Link>
-            </li> */}
+            </ul>
+            <h2 className="text-xl font-medium tracking-wide">BRANDS</h2>
+            <div className="w-[100px] h-[1px] bg-bgMain4"></div>
+            <ul className="space-y-2 md:space-y-3 text-sm font-light">
+              {brands.slice(0, 5).map((item, index) => (
+                <li key={index}>
+                  <Link
+                    href={`/brands/${item.slug}`}
+                    className="hover:text-bgMain4 hover:pl-1 font-medium transition-all ease-in-out"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
+
+        {/* Contact Details Section */}
         <div className="space-y-4">
-          <h2 className="text-xl font- tracking-wide">CONTACT DETAILS</h2>
-          <div className="w-[100px] h-[1.5px] bg-bgMain3"></div>
-          <div className="space-y-2">
-            <h2 className="text-lg font-medium">HEAD OFFICE</h2>
-            <p className="text-sm tracking-wide">
-              80 GENTING LANE, # 03-10 RUBY INDUSTRIAL COMPLEX, SINGAPORE -
-              349565
+          <h2 className="text-xl font-medium tracking-wide">CONTACT DETAILS</h2>
+          <div className="w-[100px] h-[1.5px] bg-bgMain4"></div>
+
+          {/* Head Office */}
+          <div>
+            <h3 className="text-lg font-medium">HEAD OFFICE</h3>
+            <p className="text-sm tracking-wide flex items-start space-x-2">
+              <MapPin className="w-5 h-5 text-gray-600" />
+              <span>
+                80 Genting Lane, #03-10 Ruby Industrial Complex, Singapore -
+                349565
+              </span>
             </p>
           </div>
 
+          {/* Second Office */}
+          {/* <div>
+            <h3 className="text-lg font-medium">SECOND OFFICE</h3>
+            <p className="text-sm tracking-wide flex items-start space-x-2">
+              <MapPin className="w-5 h-5 text-gray-600" />
+              <span>Dubai | UAE</span>
+            </p>
+          </div> */}
+
+          {/* Email */}
           <div className="space-y-2">
-            <h2 className="text-lg font-medium">SECOND OFFICE</h2>
-            <p className="text-sm tracking-wide">DUBAI | UAE</p>
-          </div>
-          <div className="w-full h-[1px] bg-black/10"></div>
-          <div className="space-y-2">
-            <h2 className="text-lg font-medium">EMAIL</h2>
+            <h3 className="text-lg font-medium">EMAIL</h3>
             <a
               href="mailto:info@caliberstar.com"
-              className="text-sm tracking-wide"
+              className="text-sm tracking-wide flex items-center space-x-2 hover:text-bgMain4 transition-all"
+              rel="noopener noreferrer"
             >
-              info@caliberstar.com
+              <Mail className="w-5 h-5 text-gray-600" />
+              <span>info@caliberstar.com</span>
             </a>
           </div>
-          <div className="w-full h-[1px] bg-black/10"></div>
+
+          {/* Contact */}
           <div className="space-y-2">
-            <h2 className="text-lg font-medium">CONTACT</h2>
-            <a href="tel:+971 50 753 1231" className="text-sm tracking-wide">
-              +971 50 753 1231
+            <h3 className="text-lg font-medium">CONTACT</h3>
+            <a
+              href="tel:+971507531231"
+              className="text-sm tracking-wide flex items-center space-x-2 hover:text-bgMain4 transition-all"
+            >
+              <Phone className="w-5 h-5 text-gray-600" />
+              <span>+971 50 753 1231</span>
             </a>
           </div>
         </div>
       </div>
-      <div className="templateContainer">
+
+      {/* Footer Divider */}
+      <div className="sacontainer">
         <hr />
       </div>
-      <div className="templateContainer text-black py-6">
+
+      {/* Footer Bottom */}
+      <div className="sacontainer py-6">
         <p className="text-sm tracking-wider text-center">
           © Copyright 2024 | All Rights Reserved
         </p>
       </div>
-    </div>
+    </footer>
   );
 };
 

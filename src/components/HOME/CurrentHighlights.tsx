@@ -14,7 +14,6 @@ const CurrentHighlights = () => {
         `${process.env.BACKEND}/wp-json/wp/v2/products?_fields=id,slug,title,meta.main-image-primary,meta.is-highlight-product,meta.model&per_page=100`
       );
       const result = await response.json();
-      console.log(result, "result");
 
       if (response.ok) {
         const filteredData = result.filter(
@@ -40,7 +39,7 @@ const CurrentHighlights = () => {
     <div className="py-12 bg-white">
       <Wrapper>
         <div className="flex justify-center items-center mb-5">
-          <h3 className="text-black md:text-4xl font-semibold text-2xl relative after:content-[''] after:block after:h-[3px] after:bg-gradient-to-r from-gray-500 to-black after:w-1/2 after:mt-2 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full rounded-lg mb-2">
+          <h3 className="text-black md:text-4xl font-semibold text-2xl relative after:content-[''] after:block after:h-[3px] after:bg-gradient-to-r to-[#8c7a66] from-[#d4bea4] after:w-1/2 after:mt-2 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full rounded-lg mb-2">
             Current Highlights
           </h3>
         </div>

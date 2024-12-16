@@ -11,8 +11,8 @@ const config: Config = {
       colors: {
         bgMain: "#f4f4f4",
         bgMain2: "#ffffff",
-        bgMain3: "#16268f",
-        bgMain4: "#1f2f58",
+        bgMain3: "#8c7a66",
+        bgMain4: "#8c7a66",
         bgMain5: "#ab6e53",
         textMain: "#b2aa9c",
         templatePrimary: "#2E496B",
