@@ -48,7 +48,7 @@ const Footer = () => {
         {/* Useful Links Section */}
         <div className="flex md:justify-center">
           <div className="space-y-3">
-            <h2 className="text-xl font-medium tracking-wide">USEFUL LINKS</h2>
+            <h2 className="text-xl font-medium tracking-wide text-bgMain4">USEFUL LINKS</h2>
             <div className="w-[100px] h-[1.5px] bg-bgMain4"></div>
             <ul className="space-y-2 md:space-y-3 text-sm font-light">
               {menuItem.map((item, index) => (
@@ -62,7 +62,7 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-            <h2 className="text-xl font-medium tracking-wide">BRANDS</h2>
+            <h2 className="text-xl font-medium tracking-wide text-bgMain4">BRANDS</h2>
             <div className="w-[100px] h-[1px] bg-bgMain4"></div>
             <ul className="space-y-2 md:space-y-3 text-sm font-light">
               {brands.slice(0, 5).map((item, index) => (
@@ -81,7 +81,7 @@ const Footer = () => {
 
         {/* Contact Details Section */}
         <div className="space-y-4">
-          <h2 className="text-xl font-medium tracking-wide">CONTACT DETAILS</h2>
+          <h2 className="text-xl font-medium tracking-wide text-bgMain4">CONTACT DETAILS</h2>
           <div className="w-[100px] h-[1.5px] bg-bgMain4"></div>
 
           {/* Head Office */}

@@ -6,67 +6,36 @@ import { ProductDataByCategory } from "../SingleCategoryProductData/SingleCatego
 
 interface ProductDataProps {
   data: ProductDataByCategory;
-  //  {
-  //   title: string;
-  //   slug: string;
-  //   main_image_primary: string;
-  //   main_image_secondary?: string | null;
-  // };
 }
 
 const NewArrivalCard: React.FC<ProductDataProps> = ({ data }) => {
-  const { title, main_image_primary, main_image_secondary, slug } = data;
-  const [isHovered, setIsHovered] = useState(false);
+  console.log(data);
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
+  const { casematerial, model, title, featured_media_url, slug } = data;
 
   return (
     <Link href={`/product/${slug}`}>
-      <div
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        className="relative aspect-[4/5]  border-gray-100 overflow-hidden cursor-pointer mb-2 "
-      >
-        {/* <div className="absolute top-0 right-0 bg-[#6d600b] text-white text-xs font-semibold px-2 py-1 rounded-bl-lg uppercase z-10">
-          New
-        </div> */}
-
-        {/* Primary Image */}
-        {/* <div className="absolute left-0 top-0 w-full h-full">
-            <Image
-              src={main_image_primary}
-              width={340}
-              height={410}
-              alt={title}
-              layout="responsive"
-              objectFit="cover"
-            />
-          </div> */}
-        <div className="absolute left-0 top-0 w-full h-full scale-110">
-          {main_image_secondary && (
-            <Image
-              src={isHovered ? main_image_primary : main_image_primary}
-              width={400}
-              height={450}
-              alt={title}
-              layout="responsive"
-              objectFit="cover"
-              className="transition-transform duration-600 scale-125 hover:scale-110 duration-700 ease-in-out "
-            />
-          )}
+      <div className="group relative flex items-center p-4 bg-gray-100 shadow-md hover:shadow-xl rounded-lg cursor-pointer transition duration-300">
+        {/* Product Details */}
+        <div className="ml-4 text-left w-2/3">
+          <h4 className="text-lg pb-2 font-semibold text-bgMain4">{title}</h4>
+          <p className="text-sm text-gray-700">
+            {casematerial.replace(/&amp;/g, "&")}
+          </p>
+          {/* <p className="text-md font-bold mt-1">163,800 AED</p> */}
+          <span className="text-xs uppercase font-semibold text-black">
+            {model}
+          </span>
         </div>
-
-        {/* Product Title */}
-        <div className="absolute bottom-0 md:-bottom-5 left-0 text-center md:mb-3 mb-0 w-full">
-          <h4 className="md:text-base text-[14px] font-bold text-white rounded-md py-1 px-2 z-10 md:line-clamp-none line-clamp-1">
-            {title}
-          </h4>
+        {/* Product Image */}
+        <div className="overflow-hidden">
+          <Image
+            src={featured_media_url}
+            width={250}
+            height={250}
+            alt={title}
+            className="transition-transform duration-300 scale-150 group-hover:scale-125"
+          />
         </div>
       </div>
     </Link>

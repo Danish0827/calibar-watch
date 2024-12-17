@@ -22,7 +22,7 @@ export default function RootLayout({
             <Header />
             {children}
             <ToastContainer />
-            <FloatingButton />
+            {/* <FloatingButton /> */}
             <FloatingAppointment />
             <Footer />
           </Appprovider>

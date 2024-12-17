@@ -69,11 +69,11 @@ const SingleProductDetail2: React.FC<SingleProductDetailProps> = ({
     <>
       <div>
         <Wrapper className="md:py-12 py-8">
-          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-8 items-center ">
             {/* Product Image */}
             <div className="flex justify-center">
               <Image
-                src={productDataBySlug.meta.main_image_primary}
+                src={productDataBySlug.featured_media_url}
                 width={458}
                 height={572}
                 alt="Product Image"
@@ -82,8 +82,8 @@ const SingleProductDetail2: React.FC<SingleProductDetailProps> = ({
             </div>
 
             {/* Product Details */}
-            <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-gray-900">
+            <div className="space-y-6 lg:h-[400px]">
+              <h2 className="text-3xl font-bold text-bgMain4">
                 Product Details
               </h2>
               <ul className="space-y-2 text-gray-700">
@@ -127,7 +127,7 @@ const SingleProductDetail2: React.FC<SingleProductDetailProps> = ({
             </div>
 
             {/* Action Section */}
-            <div className="space-y-4">
+            <div className="space-y-4 lg:h-[400px]">
               {/* Breadcrumbs */}
               <ul className="flex items-center text-sm text-gray-600 gap-2">
                 <li>
@@ -149,7 +149,7 @@ const SingleProductDetail2: React.FC<SingleProductDetailProps> = ({
               <div className="block mb-3">
                 <button
                   onClick={handleAppointmentClick}
-                  className="bg-black text-white flex items-center gap-2 px-6 py-3 font-semibold rounded-md shadow-md hover:bg-gray-800 transition"
+                  className="bg-black w-full mb-3 text-white flex justify-center items-center gap-2 px-6 py-3 font-semibold rounded-md shadow-md hover:bg-gray-800 transition"
                 >
                   <MailCheck size={20} />
                   Mail
@@ -178,7 +178,7 @@ const SingleProductDetail2: React.FC<SingleProductDetailProps> = ({
                   target="_blank"
                   href={`https://wa.me/971507531231?text=Hello%2C%0D%0AI%27m+interested+in+${productDataBySlug.meta.product_title}`}
                 >
-                  <button className="bg-green-600 text-white flex items-center gap-2 px-6 py-3 font-semibold rounded-md shadow-md hover:bg-green-500 transition">
+                  <button className="bg-green-600 text-white flex justify-center w-full items-center gap-2 px-6 py-3 font-semibold rounded-md shadow-md hover:bg-green-500 transition">
                     <FaWhatsapp size={20} />
                     Whatsapp
                   </button>

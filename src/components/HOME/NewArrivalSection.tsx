@@ -8,6 +8,7 @@ import { setProducts } from "@/store/slice/productSlice";
 import useEmblaCarousel from "embla-carousel-react";
 import NewArrivalCard from "../NewArrivalSection/NewArrivalCard";
 import { transform } from "next/dist/build/swc/generated-native";
+import NewArrivalSectionHome from "./NewArrivalSectionHome";
 
 const NewArrivalSection = () => {
   const dispatch = useDispatch();
@@ -110,7 +111,7 @@ const NewArrivalSection = () => {
                       className=" flex-shrink-0 basis-[calc(100%/2)] md:basis-[calc(100%/3)] lg:basis-[calc(100%/7)]"
                       key={index}
                     >
-                      <NewArrivalCard data={product} />
+                      <NewArrivalSectionHome data={product} />
                     </div>
                   ))}
             </div>

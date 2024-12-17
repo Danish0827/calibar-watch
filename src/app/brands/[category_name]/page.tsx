@@ -8,7 +8,6 @@ export interface ProductDataByCategory {
   slug?: string;
   featured_media_url?: string;
   product_title?: string;
-  main_image_primary?: string;
   main_image_secondary?: string;
 }
 
@@ -45,11 +44,11 @@ const Page = async ({ params }: PageProps) => {
 
   const products: any = await fetchCategoryData(category_name);
 
-  if (products.length === 0) {
-    return <ProductCardSkeleton />;
-  }
+  // if (products.length === 0) {
+  //   return <ProductCardSkeleton />;
+  // }
 
-  return <SingleCategoryProductData productDataByCategory={products} />;
+  return <SingleCategoryProductData productDataByCategory={products} params={category_name} />;
 };
 
 export default Page;
