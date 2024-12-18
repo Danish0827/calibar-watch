@@ -13,7 +13,7 @@ export const generateEmailTemplate = ({
     <div style="font-family: 'Helvetica Neue', Arial, sans-serif; padding: 40px; background-color: #1a1a1a; color: #f4f4f4; line-height: 1.6;">
       <div style="text-align: center; margin-bottom: 30px;">
         <img 
-          src="https://calibarstarbck.demo-web.live/wp-content/uploads/2024/12/mainlogo.png" 
+          src="https://calibarstarbck.demo-web.live/wp-content/uploads/2024/12/main-logo.png" 
           alt="Caliber Star Logo" 
           style="max-width: 180px; border-radius: 10px;filter: brightness(100);">
       </div>
