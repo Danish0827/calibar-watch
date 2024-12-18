@@ -113,7 +113,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
   ];
 
   return (
-    <ul className="flex flex-col md:hidden font-semibold font-sans absolute top-[100px] left-0 w-full h-[calc(100vh-50px)] bg-white border-t text-black">
+    <ul className="flex flex-col md:hidden font-semibold font-sans absolute top-[100px] left-0 w-full h-[calc(100vh-50px)] bg-bgMain4 border-t text-white">
       {data.map((item) => {
         return (
           <React.Fragment key={item.id}>

@@ -20,7 +20,7 @@ const NewArrivalSection = () => {
   } | null>(null);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const perPage = 12;
+  const perPage = 100;
 
   // Embla Carousel setup
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -91,7 +91,7 @@ const NewArrivalSection = () => {
           </div>
 
           {/* Embla Carousel */}
-          <div className="embla mt-4" ref={emblaRef}>
+          <div className="embla pt-8" ref={emblaRef}>
             <div
               className="embla__container flex gap-3"
             >

@@ -18,7 +18,9 @@ interface Errors {
   message?: string;
 }
 
-const ContactForm = () => {
+const ContactForm = ({ productTitle }: any) => {
+  console.log(productTitle);
+  
   const [formData, setFormData] = useState<FormData>({
     name: "",
     phone: "",

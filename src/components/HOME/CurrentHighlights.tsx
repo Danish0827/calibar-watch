@@ -11,7 +11,7 @@ const CurrentHighlights = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `${process.env.BACKEND}/wp-json/wp/v2/products?_fields=id,slug,title,meta.main-image-primary,meta.is-highlight-product,meta.model&per_page=100`
+        `${process.env.BACKEND}/wp-json/wp/v2/products?_fields=id,slug,title,meta.main-image-primary,meta.is-highlight-product,meta.model,featured_media_url,main_image_primary_url,gallery_images_urls&per_page=100`
       );
       const result = await response.json();
 
@@ -49,9 +49,9 @@ const CurrentHighlights = () => {
               <div className="group border border-gray-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="relative">
                   <img
-                    src={item.meta?.["main-image-primary"]}
+                    src={item.featured_media_url}
                     alt={item.title}
-                    className="w-full h-64 object-cover"
+                    className="w-full h-72 scale-90 group-hover:scale-95 duration-500 object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>

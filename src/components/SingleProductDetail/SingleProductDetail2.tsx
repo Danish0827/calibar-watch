@@ -30,6 +30,7 @@ export interface ProductData {
   bezel?: string;
   bracelet?: string;
   movement?: string;
+  watch_code?: string;
   "water-resistance"?: string;
 }
 
@@ -77,7 +78,7 @@ const SingleProductDetail2: React.FC<SingleProductDetailProps> = ({
                 width={458}
                 height={572}
                 alt="Product Image"
-                className="rounded-lg lg:scale-150"
+                className="rounded-lg -mt-16 lg:-mt-10"
               />
             </div>
 
@@ -87,42 +88,78 @@ const SingleProductDetail2: React.FC<SingleProductDetailProps> = ({
                 Product Details
               </h2>
               <ul className="space-y-2 text-gray-700">
-                <li>
-                  <span className="font-semibold">Brand: </span>
-                  {productDataBySlug.meta.brand}
-                </li>
-                <li>
-                  <span className="font-semibold">Model: </span>
-                  {productDataBySlug.meta.model}
-                </li>
-                <li>
-                  <span className="font-semibold">Case Diameter: </span>
-                  {productDataBySlug.meta["case-diameter"]}
-                </li>
-                <li>
-                  <span className="font-semibold">Case Material: </span>
-                  {productDataBySlug.meta["case-material"]}
-                </li>
-                <li>
-                  <span className="font-semibold">Dial Color: </span>
-                  {productDataBySlug.meta["dial-type"]}
-                </li>
-                <li>
-                  <span className="font-semibold">Bezel: </span>
-                  {productDataBySlug.meta.bezel}
-                </li>
-                <li>
-                  <span className="font-semibold">Bracelet: </span>
-                  {productDataBySlug.meta.bracelet}
-                </li>
-                <li>
-                  <span className="font-semibold">Movement: </span>
-                  {productDataBySlug.meta.movement}
-                </li>
-                <li>
-                  <span className="font-semibold">Water Resistance: </span>
-                  {productDataBySlug.meta["water-resistance"]}
-                </li>
+                {productDataBySlug?.meta?.brand && (
+                  <li>
+                    <span className="font-semibold">Brand: </span>
+                    {productDataBySlug.meta.brand.replace(/&amp;/g, "&")}
+                  </li>
+                )}
+                {productDataBySlug?.meta?.model && (
+                  <li>
+                    <span className="font-semibold">Model: </span>
+                    {productDataBySlug.meta.model.replace(/&amp;/g, "&")}
+                  </li>
+                )}
+                {productDataBySlug?.meta?.["case-diameter"] && (
+                  <li>
+                    <span className="font-semibold">Case Diameter: </span>
+                    {productDataBySlug.meta["case-diameter"].replace(
+                      /&amp;/g,
+                      "&"
+                    )}
+                  </li>
+                )}
+                {productDataBySlug?.meta?.["case-material"] && (
+                  <li>
+                    <span className="font-semibold">Case Material: </span>
+                    {productDataBySlug.meta["case-material"].replace(
+                      /&amp;/g,
+                      "&"
+                    )}
+                  </li>
+                )}
+                {productDataBySlug?.meta?.["dial-color"] && (
+                  <li>
+                    <span className="font-semibold">Dial Color: </span>
+                    {productDataBySlug.meta["dial-color"].replace(
+                      /&amp;/g,
+                      "&"
+                    )}
+                  </li>
+                )}
+                {productDataBySlug?.meta?.["dial-type"] && (
+                  <li>
+                    <span className="font-semibold">Dial Type: </span>
+                    {productDataBySlug.meta["dial-type"].replace(/&amp;/g, "&")}
+                  </li>
+                )}
+                {productDataBySlug?.meta?.bezel && (
+                  <li>
+                    <span className="font-semibold">Bezel: </span>
+                    {productDataBySlug.meta.bezel.replace(/&amp;/g, "&")}
+                  </li>
+                )}
+                {productDataBySlug?.meta?.bracelet && (
+                  <li>
+                    <span className="font-semibold">Bracelet: </span>
+                    {productDataBySlug.meta.bracelet.replace(/&amp;/g, "&")}
+                  </li>
+                )}
+                {productDataBySlug?.meta?.movement && (
+                  <li>
+                    <span className="font-semibold">Movement: </span>
+                    {productDataBySlug.meta.movement.replace(/&amp;/g, "&")}
+                  </li>
+                )}
+                {productDataBySlug?.meta?.["water-resistance"] && (
+                  <li>
+                    <span className="font-semibold">Water Resistance: </span>
+                    {productDataBySlug.meta["water-resistance"].replace(
+                      /&amp;/g,
+                      "&"
+                    )}
+                  </li>
+                )}
               </ul>
             </div>
 
@@ -169,7 +206,9 @@ const SingleProductDetail2: React.FC<SingleProductDetailProps> = ({
                     <SkeletonLoader />
                   ) : (
                     <div className="bg-black p-[60px] h-auto w-full mt-6">
-                      <ContactForm />
+                      <ContactForm
+                        productTitle={productDataBySlug.watch_code}
+                      />
                     </div>
                   )}
                 </Modal>

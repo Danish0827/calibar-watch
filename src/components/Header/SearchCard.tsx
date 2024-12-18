@@ -37,7 +37,7 @@ const SearchCard: React.FC<ProductDataProps> = ({ data }) => {
           </div>
 
           {/* Primary Image */}
-          <div className="absolute left-0 top-0 w-full h-full">
+          <div className="absolute left-0 -top-10 lg:-top-16 w-full h-full">
             <Image
               src={main_image_primary}
               width={340}
@@ -59,8 +59,8 @@ const SearchCard: React.FC<ProductDataProps> = ({ data }) => {
           )}
 
           {/* Product Title */}
-          <div className="  absolute bottom-0 text-center left-0 w-full">
-            <h4 className="md:text-[14px] text-[14px] font-normal text-black/[0.8] rounded-md py-1 px-2 z-10  line-clamp-1">
+          <div className="  absolute bottom-2 text-center left-0 w-full">
+            <h4 className="md:text-[14px] text-[14px] font-semibold text-black/[0.8] rounded-md pb-1 px-2 z-10  line-clamp-1">
               {title}
             </h4>
           </div>

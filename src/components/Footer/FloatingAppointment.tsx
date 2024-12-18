@@ -93,7 +93,13 @@ const FloatingAppointment = () => {
       {show === true && (
         <>
           {/* Large screen button */}
-          <div className="flex gap-3 items-center cursor-pointer fixed -right-[70px] md:-right-[40px] z-50 shadow-lg -rotate-90 px-7 md:px-3 md:pr-0 py-2 rounded-t-xl bottom-[50%] bg-bgMain4 ">
+          <div
+            style={{
+              boxShadow:
+                "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px",
+            }}
+            className="flex gap-3 items-center cursor-pointer fixed -right-[70px] md:-right-[40px] z-50 shadow-lg -rotate-90 px-7 md:px-3 md:pr-0 py-2 rounded-t-xl bottom-[50%] bg-bgMain4 "
+          >
             <h2 onClick={handleAppointmentClick} className="text-white text-lg">
               Inquiry Now
             </h2>
@@ -110,7 +116,13 @@ const FloatingAppointment = () => {
         </>
       )}
       {show === false && (
-        <div className="block fixed -right-[10px] z-50 -rotate-90 px-4 pt-3 pb-1 rounded-t-xl bottom-[50%] bg-bgMain4">
+        <div
+          style={{
+            boxShadow:
+              "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px",
+          }}
+          className="block fixed -right-[10px] z-50 -rotate-90 px-4 pt-3 pb-1 rounded-t-xl bottom-[50%] bg-bgMain4"
+        >
           <MdMenuOpen
             onClick={handleShowAppointment}
             className="md:hidden text-xl text-white rotate-90 mb-3"

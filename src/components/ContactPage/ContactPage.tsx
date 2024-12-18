@@ -32,17 +32,17 @@ const ContactPage = () => {
       <BreadCrumb
         title={"Contact us"}
         page={"Contact us"}
-        image1="/images/contact1.jpg"
+        image1="/images/breadImage.jpg"
       />
 
-      <div className="md:px-6 px-3 my-24">
+      <div className="md:px-6 px-1 my-10 md:my-24">
         <Wrapper>
           <div className="w-full h-auto flex flex-col justify-center items-center">
-            <h3 className="text-black text-xl font-semibold text-center">
+            <h3 className="text-black md:text-xl font-semibold text-center">
               Direct Communication
             </h3>
-            <div className="mt-5">
-              <h4 className="md:text-5xl text-4xl text-center font-semibold">
+            <div className="mt-2">
+              <h4 className="md:text-5xl text-2xl text-center font-semibold">
                 Connect{" "}
                 <span
                   className={`text-white bg-black px-2 py-1 inline-block transition-all duration-500 ease-in transform `}
@@ -53,7 +53,7 @@ const ContactPage = () => {
             </div>
           </div>
 
-          <div className="my-10">
+          <div className="md:my-10 my-6">
             <div className="flex md:flex-row flex-col ">
               <div className="md:w-1/2 w-full">
                 <img
@@ -66,7 +66,7 @@ const ContactPage = () => {
               </div>
 
               <div className="bg-black p-[60px] h-auto md:w-1/2 w-full">
-                <ContactForm />
+                <ContactForm productTitle='test' />
               </div>
             </div>
           </div>
@@ -81,7 +81,7 @@ const ContactPage = () => {
                   <h3 className="text-base text-bgMain">
                     80 Genting Lane, #03-10 Ruby Industrial Complex
                   </h3>
-                  <h4 className="text-2xl text-white">SINGAPORE - 349565</h4>
+                  <h4 className="md:text-2xl text-lg text-white">SINGAPORE - 349565</h4>
                 </div>
               </div>
               <div className="flex md:flex-row flex-col gap-4 items-center justify-center text-center md:text-left">
@@ -90,7 +90,7 @@ const ContactPage = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-base text-bgMain ">Reach out to us at</h3>
-                  <h4 className="text-2xl text-white">
+                  <h4 className="md:text-2xl text-lg text-white">
                     <Link href="tel:+971 50 753 1231">Phone: +971 50 753 1231</Link>
                   </h4>
                 </div>
@@ -102,7 +102,7 @@ const ContactPage = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-base text-bgMain ">Customer Service</h3>
-                  <h4 className="text-2xl text-white">
+                  <h4 className="md:text-2xl text-lg text-white">
                     <Link href="mailto:info@caliberstar.com">
                       Email - info@caliberstar.com
                     </Link>

@@ -48,8 +48,8 @@ const NewArrivalSectionHome: React.FC<ProductDataProps> = ({ data }) => {
               objectFit="cover"
             />
           </div> */}
-        <div className="absolute left-0 top-0 w-full h-full scale-110">
-          {main_image_secondary && (
+        <div className="absolute left-0 top-0 w-full h-full scale-110 ">
+          {/* {main_image_secondary && ( */}
             <Image
               src={isHovered ? main_image_primary : main_image_primary}
               width={400}
@@ -57,9 +57,9 @@ const NewArrivalSectionHome: React.FC<ProductDataProps> = ({ data }) => {
               alt={title}
               layout="responsive"
               objectFit="cover"
-              className="transition-transform duration-600 scale-125 hover:scale-110 duration-700 ease-in-out "
+              className="transition-transform duration-600 -mt-14 hover:scale- duration-700 ease-in-out "
             />
-          )}
+          {/* )} */}
         </div>
 
         {/* Product Title */}

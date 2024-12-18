@@ -12,7 +12,7 @@ const AboutUsPage = () => {
       <BreadCrumb
         title={"About Us"}
         page={"About us"}
-        image1="/images/slide3.webp"
+        image1="/images/breadImage.jpg"
       />
       <EveryMomentMatters />
       <AboutSection1 />
