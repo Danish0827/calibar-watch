@@ -145,7 +145,11 @@ const FloatingAppointment = () => {
           <SkeletonLoader />
         ) : (
           <div className="bg-black p-[60px] h-auto w-full mt-6">
-            <ContactForm />
+            <ContactForm
+              productTitle="nodata"
+              productModel="nodata"
+              productCode="nodata"
+            />
           </div>
         )}
       </Modal>

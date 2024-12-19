@@ -132,7 +132,7 @@ const SearchBar = ({ hasScrolled }: { hasScrolled: boolean }) => {
             } `}
           >
            <div
-              className={`absolute right-11 z-50 top-[250%] left-0 w-full h-[100vh] rounded-md shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] flex items-center justify-center bg-[#fff] transition-all duration-300 transform ${
+              className={`absolute right-11 z-50 top-[250%] left-0 w-full h-[80vh] rounded-md shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] flex items-center justify-center bg-[#fff] transition-all duration-300 transform ${
                 showSearchBox
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 -translate-y-5 pointer-events-none"

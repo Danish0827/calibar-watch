@@ -9,6 +9,9 @@ interface FormData {
   phone: string;
   email: string;
   message: string;
+  productTitle: string;
+  productModel: string;
+  productCode: string;
 }
 
 interface Errors {
@@ -18,15 +21,19 @@ interface Errors {
   message?: string;
 }
 
-const ContactForm = ({ productTitle }: any) => {
-  console.log(productTitle);
-  
+const ContactForm = ({ productTitle, productModel, productCode }: any) => {
+  console.log(productTitle, productModel, productCode);
+
   const [formData, setFormData] = useState<FormData>({
+    productTitle: productTitle,
+    productModel: productTitle,
+    productCode: productTitle,
     name: "",
     phone: "",
     email: "",
     message: "",
   });
+  
 
   const [errors, setErrors] = useState<Errors>({});
   const [submitting, setSubmitting] = useState(false);
@@ -68,28 +75,31 @@ const ContactForm = ({ productTitle }: any) => {
             message
           );
 
-          console.log(response, "jhgfhd");
+          // console.log(response, "jhgfhd");
 
           if (response.status === 200) {
-            console.log(response, "Form submission successful!");
+            // console.log(response, "Form submission successful!");
 
-            toast("🥳⚡The message has been sent successfully!", {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "dark",
-              transition: Bounce,
-            });
+            // toast("🥳⚡The message has been sent successfully!", {
+            //   position: "top-right",
+            //   autoClose: 5000,
+            //   hideProgressBar: false,
+            //   closeOnClick: true,
+            //   pauseOnHover: true,
+            //   draggable: true,
+            //   progress: undefined,
+            //   theme: "dark",
+            //   transition: Bounce,
+            // });
 
             const mailSent = await send({
               name,
               phone,
               email,
               message,
+              productTitle,
+              productModel,
+              productCode,
             });
 
             if (mailSent) {
@@ -110,6 +120,9 @@ const ContactForm = ({ productTitle }: any) => {
                 phone: "",
                 email: "",
                 message: "",
+                productTitle,
+                productModel,
+                productCode,
               });
             }
           } else {

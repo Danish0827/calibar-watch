@@ -41,7 +41,7 @@ interface SingleProductDetailProps {
 const SingleProductDetail2: React.FC<SingleProductDetailProps> = ({
   productDataBySlug,
 }: any) => {
-  console.log(productDataBySlug);
+  // console.log(productDataBySlug);
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -207,7 +207,9 @@ const SingleProductDetail2: React.FC<SingleProductDetailProps> = ({
                   ) : (
                     <div className="bg-black p-[60px] h-auto w-full mt-6">
                       <ContactForm
-                        productTitle={productDataBySlug.watch_code}
+                        productTitle={productDataBySlug?.meta?.brand}
+                        productModel={productDataBySlug?.meta?.model}
+                        productCode={productDataBySlug?.meta?.watch_code}
                       />
                     </div>
                   )}

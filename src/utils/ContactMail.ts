@@ -9,6 +9,9 @@ interface SendFuncProps {
   phone: string;
   email: string;
   message: string;
+  productTitle: string;
+  productModel: string;
+  productCode: string;
 }
 
 export const send: React.FC<SendFuncProps> = async ({
@@ -16,19 +19,25 @@ export const send: React.FC<SendFuncProps> = async ({
   phone,
   email,
   message,
+  productTitle,
+  productModel,
+  productCode,
 }) => {
   const emailBody = generateEmailTemplate({
     name,
     phone,
     email,
     message,
+    productTitle,
+    productModel,
+    productCode,
   });
 
   try {
     await sendmail({
       to: "danishshaikh.st@gmail.com",
-      name: "Caliber Star Watches",
-      subject: "Enquiry From Caliber Star Watches",
+      name: "Caliber Star",
+      subject: "Enquiry From Caliber Star ",
       body: emailBody,
     });
 

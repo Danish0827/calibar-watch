@@ -66,7 +66,11 @@ const ContactPage = () => {
               </div>
 
               <div className="bg-black p-[60px] h-auto md:w-1/2 w-full">
-                <ContactForm productTitle='test' />
+                <ContactForm
+                  productTitle="nodata"
+                  productModel="nodata"
+                  productCode="nodata"
+                />
               </div>
             </div>
           </div>
@@ -81,7 +85,9 @@ const ContactPage = () => {
                   <h3 className="text-base text-bgMain">
                     80 Genting Lane, #03-10 Ruby Industrial Complex
                   </h3>
-                  <h4 className="md:text-2xl text-lg text-white">SINGAPORE - 349565</h4>
+                  <h4 className="md:text-2xl text-lg text-white">
+                    SINGAPORE - 349565
+                  </h4>
                 </div>
               </div>
               <div className="flex md:flex-row flex-col gap-4 items-center justify-center text-center md:text-left">
@@ -91,7 +97,9 @@ const ContactPage = () => {
                 <div className="ml-4">
                   <h3 className="text-base text-bgMain ">Reach out to us at</h3>
                   <h4 className="md:text-2xl text-lg text-white">
-                    <Link href="tel:+971 50 753 1231">Phone: +971 50 753 1231</Link>
+                    <Link href="tel:+971 50 753 1231">
+                      Phone: +971 50 753 1231
+                    </Link>
                   </h4>
                 </div>
               </div>
