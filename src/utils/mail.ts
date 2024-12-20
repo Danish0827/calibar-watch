@@ -18,7 +18,6 @@ export async function sendmail({
   subject,
   body,
 }: SendMailOptions): Promise<SendMailResult> {
-  console.log(to, name, subject, body, "bodyData");
   const transporter: Transporter = nodemailer.createTransport({
     host: "lax028.hawkhost.com",
     port: 587,
@@ -38,7 +37,7 @@ export async function sendmail({
   try {
     // Send email
     const sendResult = await transporter.sendMail({
-      from: `${name} <${to}>`,
+      from: `${name} <info@demo-web.live>`,
       to,
       subject,
       html: body,
