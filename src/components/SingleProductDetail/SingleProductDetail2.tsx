@@ -207,7 +207,7 @@ const SingleProductDetail2: React.FC<SingleProductDetailProps> = ({
                   ) : (
                     <div className="bg-black p-[60px] h-auto w-full mt-6">
                       <ContactForm
-                        productTitle={productDataBySlug?.meta?.brand}
+                        productTitle={productDataBySlug?.meta?.product_title}
                         productModel={productDataBySlug?.meta?.model}
                         productCode={productDataBySlug?.meta?.watch_code}
                       />
