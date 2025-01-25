@@ -75,7 +75,7 @@ const ContactPage = () => {
             </div>
           </div>
 
-          <div className="">
+          {/* <div className="">
             <div className="bg-black grid md:grid-cols-3 grid-cols-1 gap-8 px-8 py-8">
               <div className="flex md:flex-row flex-col gap-4 items-center justify-center text-center md:text-left">
                 <div className="w-[60px] h-[60px] flex items-center justify-center rounded-full bg-white">
@@ -118,7 +118,7 @@ const ContactPage = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </Wrapper>
       </div>
     </>

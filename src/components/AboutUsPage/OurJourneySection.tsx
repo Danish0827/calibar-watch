@@ -30,7 +30,7 @@ const OurJourney = () => {
             </div>
 
             <div className="text-sm md:text-base text-gray-600 duration-300 group-hover:text-black mt-4 text-justify">
-              Welcome to Caliber Star Watches, your ultimate destination for
+              Welcome to Caliber Star, your ultimate destination for
               premium timepieces. Founded in year, we have been dedicated to
               bringing you the finest watches crafted by the best artisans
               around the world. From luxurious designs to innovative technology,

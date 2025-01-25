@@ -1,5 +1,6 @@
 export const generateEmailTemplate = ({
   name,
+  cname,
   phone,
   email,
   message,
@@ -8,6 +9,7 @@ export const generateEmailTemplate = ({
   productCode,
 }: {
   name: string;
+  cname: string;
   phone: string;
   email: string;
   message: string;
@@ -35,6 +37,9 @@ export const generateEmailTemplate = ({
         <h2 style="color: #ee7737; margin-bottom: 20px; text-align: center;">New Enquiry Details</h2>
         ${productDetails}
         <p style="margin-bottom: 10px;"><strong>Name:</strong> ${name}</p>
+         <p style="margin-bottom: 10px;"><strong>Name:</strong> ${
+           cname ? cname : "-"
+         }</p>
         <p style="margin-bottom: 10px;"><strong>Phone:</strong> <a href="tel:${phone}" style="color: #ee7737; text-decoration: none;">${phone}</a></p>
         <p style="margin-bottom: 10px;"><strong>Email:</strong> <a href="mailto:${email}" style="color: #ee7737; text-decoration: none;">${email}</a></p>
         <p style="margin-bottom: 10px;"><strong>Message:</strong></p>

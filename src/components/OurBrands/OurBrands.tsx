@@ -74,33 +74,31 @@ const OurBrands = () => {
   return (
     <div className="bg-[#8c7a66] pt-10 pb-6 md:px-4">
       <Wrapper>
-        <div>
-          <div className="flex justify-between items-center">
+        <div className="relative">
+          <div className="flex justify-center items-center">
             {/* <h3 className="text-black md:text-4xl font-semibold text-2xl relative after:content-[''] after:block after:h-[3px] after:bg-gradient-to-r from-gray-500 to-black after:w-1/2 after:mt-2 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full rounded-lg">
               Our Brands
             </h3> */}
             <h3 className="text-white md:text-4xl font-semibold text-2xl relative after:content-[''] after:block after:h-[3px] after:bg-gradient-to-r from-[#8c7a66] to-[#fff] after:w-1/2 after:mt-2 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full rounded-lg mb-2">
               Our Brands
             </h3>
-
-            <div className="hidden md:flex gap-4 justify-center items-center">
-              <div
-                className="bg-gray-100 w-[48px] h-[48px] flex justify-center items-center rounded-full shadow-md cursor-pointer"
-                onClick={scrollLeft}
-              >
-                <GoArrowLeft size={22} />
-              </div>
-              <div
-                className="bg-gray-100 w-[48px] h-[48px] flex justify-center items-center rounded-full shadow-md cursor-pointer"
-                onClick={scrollRight}
-              >
-                <GoArrowRight size={22} />
-              </div>
+          </div>
+          <div className="absolute top-0 right-0 hidden md:flex gap-4 justify-end items-center">
+            <div
+              className="bg-gray-100 w-[48px] h-[48px] flex justify-center items-center rounded-full shadow-md cursor-pointer"
+              onClick={scrollLeft}
+            >
+              <GoArrowLeft size={22} />
+            </div>
+            <div
+              className="bg-gray-100 w-[48px] h-[48px] flex justify-center items-center rounded-full shadow-md cursor-pointer"
+              onClick={scrollRight}
+            >
+              <GoArrowRight size={22} />
             </div>
           </div>
-
           <div
-            className="py-8 pl-4 overflow-x-auto scroll-smooth flex gap-5 scrollbar-hidden"
+            className="py-8 pl-4 overflow-x-auto scroll-smooth flex lg:justify-center gap-5 scrollbar-hidden"
             ref={scrollRef}
           >
             {brands.map((brand) => (

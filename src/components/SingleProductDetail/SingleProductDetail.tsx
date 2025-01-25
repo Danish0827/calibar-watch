@@ -66,7 +66,7 @@ const data = {
 
 const SingleProductDetail = () => {
   const { product_slug } = useParams();
-  console.log(product_slug, "product_sluh=g");
+  // console.log(product_slug, "product_sluh=g");
   return (
     <>
       <div>

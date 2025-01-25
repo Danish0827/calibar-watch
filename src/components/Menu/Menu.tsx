@@ -28,8 +28,8 @@ const Menu: React.FC<MenuProps> = ({ showAllMenu }) => {
   const pathname = usePathname();
   const [activeMenu, setActiveMenu] = useState<number | null>(null);
   const [activeSubMenu, setActiveSubMenu] = useState<number | null>(null);
-  const [brands, setBrands] = useState<BrandData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [brands, setBrands] = useState<BrandData[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -131,15 +131,17 @@ const MenuItem: React.FC<MenuItemProps> = ({
       </li>
     </div>
   ) : (
-    <div className="group hover:bg-bgMain4 hover:text-white">
-      <li
-        className={`cursor-pointer hover:border-b-2 lg:text-xl gap-1 font-medium uppercase border-bgMain3 group-hover:border-white hover:bg-bgMain4 px-2 py-2 lg:px-3 lg:py-5 mx-3 transition-transform ease-in text-bgMain4 group-hover:text-white ${
-          isActive ? "text-[#f3f3f3] border-b-2 border-bgMain4 " : ""
-        }`}
-      >
-        <Link href={item.url}>{item.name}</Link>
-      </li>
-    </div>
+    <Link href={item.url}>
+      <div className="group hover:bg-bgMain4 hover:text-white">
+        <li
+          className={`cursor-pointer hover:border-b-2 lg:text-xl gap-1 font-medium uppercase border-bgMain3 group-hover:border-white hover:bg-bgMain4 px-2 py-2 lg:px-3 lg:py-5 mx-3 transition-transform ease-in text-bgMain4 group-hover:text-white ${
+            isActive ? "text-[#f3f3f3] border-b-2 border-bgMain4 " : ""
+          }`}
+        >
+          {item.name}
+        </li>
+      </div>
+    </Link>
   );
 };
 

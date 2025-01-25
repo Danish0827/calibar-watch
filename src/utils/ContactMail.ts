@@ -6,6 +6,7 @@ import { sendmail } from "./mail";
 
 interface SendFuncProps {
   name: string;
+  cname: string;
   phone: string;
   email: string;
   message: string;
@@ -16,6 +17,7 @@ interface SendFuncProps {
 
 export const send: React.FC<SendFuncProps> = async ({
   name,
+  cname,
   phone,
   email,
   message,
@@ -25,6 +27,7 @@ export const send: React.FC<SendFuncProps> = async ({
 }) => {
   const emailBody = generateEmailTemplate({
     name,
+    cname,
     phone,
     email,
     message,
@@ -32,6 +35,16 @@ export const send: React.FC<SendFuncProps> = async ({
     productModel,
     productCode,
   });
+  // console.log(
+  //   name,
+  //   cname,
+  //   phone,
+  //   email,
+  //   message,
+  //   productTitle,
+  //   productModel,
+  //   productCode
+  // );
 
   try {
     await sendmail({

@@ -273,6 +273,82 @@ body {
 .ant-modal-content {
   padding: 0 !important;
 }
-input[type=number]::-webkit-inner-spin-button {
+input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
+}
+/* Container holding the image */
+/* Container that holds the image and the magnified section */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Product image */
+.product-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: zoom-in; /* Pointer cursor for better UX */
+}
+
+/* Zoom lens style */
+.zoom-lens {
+  position: absolute;
+  width: 150px; /* Size of the zoom lens */
+  height: 150px;
+  border-radius: 0%;
+  background-color: rgba(255, 255, 255, 0.3);
+  cursor: crosshair;
+  display: none; /* Initially hidden */
+  pointer-events: none; /* Prevent interaction with lens */
+  border: 2px solid #000;
+}
+
+/* Zoomed image area */
+.zoomed-image {
+  position: absolute;
+  /* top: 100px; */
+  left: 0%;
+  bottom: -650px;
+  width: 100%; /* Size of the zoomed image */
+  height: 650px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: white;
+  display: none; /* Initially hidden */
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Media query to display zoom functionality on screens larger than 1024px */
+@media screen and (min-width: 1024px) {
+  .zoom-lens {
+    position: absolute;
+    width: 150px; /* Size of the zoom lens */
+    height: 150px;
+    border-radius: 0%;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: crosshair;
+    display: none; /* Initially hidden */
+    pointer-events: none; /* Prevent interaction with lens */
+    border: 2px solid #000;
+  }
+  
+  /* Zoomed image area */
+  .zoomed-image {
+    position: absolute;
+    top: 100px;
+    left: 100%;
+    width: 350px; /* Size of the zoomed image */
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: white;
+    display: none; /* Initially hidden */
+    border: 2px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
 }

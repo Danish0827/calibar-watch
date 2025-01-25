@@ -15,15 +15,15 @@ const TimelessAndIconicSection = () => {
               Timeless and Iconic
             </h3>
             <h5 className="uppercase text-4xl md:text-5xl mt-4 mb-6 text-black font-semibold">
-              Caliber Watches
+              Caliber Star
             </h5>
             <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
-              The Caliber Watches collection features classic or sporty designs
+              The Caliber Star collection features classic or sporty designs
               boasting sophisticated functionalities, rich details, and flawless
               style.
             </p>
             <Link
-              href={"/our-products"}
+              href={"/brands/rolex"}
               className="bg-gradient-to-r from-[#8c7a66] to-[#d4bea4] text-white px-8 py-3 font-semibold text-lg uppercase rounded-md shadow-lg hover:shadow-2xl transition-all duration-300"
             >
               View Products

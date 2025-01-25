@@ -2,7 +2,7 @@ import SingleProductDetail2 from "@/components/SingleProductDetail/SingleProduct
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Caliber Star Watches Products",
+  title: "Caliber Star Products",
   description:
     "Explore our premium collection of luxury watches, designed for precision, style, and elegance.",
 };

@@ -1,6 +1,7 @@
 export const contactFormSubmission = async (
   name: string,
-  surname: string,
+  cname: string,
+  phone: string,
   email: string,
   message: string
 ) => {
@@ -14,7 +15,7 @@ export const contactFormSubmission = async (
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, surname, email, message }),
+        body: JSON.stringify({ name, cname, phone, email, message }),
       }
     );
 

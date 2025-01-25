@@ -12,12 +12,12 @@ const OurTeamSection = () => {
             <h4 className="text-bgMain5 text-xl font-medium">Our Team</h4>
 
             <h6 className="md:mt-6 mt-2 md:text-5xl text-2xl text-black font-semibold">
-              Meet Our Best & Professional Team
+              Meet Our Expert Trading & Wholesale Team
             </h6>
 
             <p className="mt-6 text-base md:text-lg text-gray-700 text-justify">
-              At Caliber Star Watches, we bring over 10 years of experience in
-              providing top-notch watch services.
+              At Caliber Star, we bring over 10 years of experience as trusted
+              watch traders and wholesalers, specializing in luxury timepieces.
             </p>
 
             <div className="mt-8">

@@ -74,7 +74,7 @@ const EveryMomentMatters = () => {
             </div>
           </div>
 
-          <div className="hidden md:flex flex-wrap items-center mt-10 justify-center space-x-6 w-full">
+          {/* <div className="hidden md:flex flex-wrap items-center mt-10 justify-center space-x-6 w-full">
             <div className="text-center px-8 py-6 bg-white rounded-lg hover:shadow-xl transition-all duration-300 ease-in-out w-full sm:w-auto mb-6 sm:mb-0">
               <h4 className="text-6xl font-extrabold text-gray-800">58</h4>
               <h5 className="text-xl mt-4 text-gray-600 uppercase tracking-wide">
@@ -108,7 +108,7 @@ const EveryMomentMatters = () => {
                 Automatic
               </h5>
             </div>
-          </div>
+          </div> */}
         </div>
       </Wrapper>
     </div>

@@ -17,7 +17,7 @@ const AboutUsPage = () => {
       <EveryMomentMatters />
       <AboutSection1 />
       <OurJourney />
-      <OurTeamSection />
+      {/* <OurTeamSection /> */}
       <OurJourneyReverse />
     </>
   );

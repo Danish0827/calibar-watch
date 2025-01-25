@@ -2,6 +2,7 @@ import React from "react";
 import Wrapper from "../Wrapper/Wrapper";
 import Image from "next/image";
 import { FaCheckDouble } from "react-icons/fa";
+import Link from 'next/link';
 
 const AboutSection1 = () => {
   return (
@@ -24,23 +25,32 @@ const AboutSection1 = () => {
           {/* Right Column - Text and List */}
           <div className="mt-8 md:w-1/2 md:mt-0 w-full">
             <h4 className="text-bgMain5 text-xl font-medium">
-              Welcome to Caliber Star Watches
+              Welcome to Caliber Star
             </h4>
 
             <h6 className="md:mt-6 mt-2 md:text-5xl text-2xl text-black font-semibold">
-              We Have 10 Years Experience in Watch Service
+              Over a Decade of Expertise in Watch Trading
             </h6>
 
             <p className="mt-6 text-base md:text-lg text-gray-700">
-              At Caliber Star Watches, we bring over 10 years of experience in
-              providing top-notch watch services. From sales to repair, our
-              expert team is here to cater to all your timepiece needs. Whether
-              you are a first-time buyer or a seasoned collector, we guarantee
-              high-quality craftsmanship and a stellar customer experience.
+              At Caliber Star, we bring a decade of expertise as trusted watch
+              traders and wholesalers. Specializing in the sale and distribution
+              of luxury timepieces, we take pride in offering a curated
+              selection of exceptional watches that appeal to both first-time
+              buyers and seasoned collectors.
+            </p>
+            <p className="mt-6 text-base md:text-lg text-gray-700">
+              Our unwavering commitment to quality and craftsmanship ensures
+              that every client experiences unmatched service and genuine value.
+              Whether you're looking to make your first investment in a luxury
+              watch or add a rare gem to your collection, we are here to guide
+              you every step of the way. At Caliber Star, it's not just about
+              selling watches—it's about celebrating the artistry, heritage, and
+              timeless appeal of horology.
             </p>
 
             {/* List of Features/Services */}
-            <div className="mt-6 md:w-[70%] w-full">
+            {/* <div className="mt-6 md:w-[70%] w-full">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex gap-2 items-center">
                   <FaCheckDouble className="text-bgMain5" />
@@ -67,13 +77,15 @@ const AboutSection1 = () => {
                   <h4 className="text-lg text-gray-600">Watch Customization</h4>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Button */}
             <div className="mt-8">
+              <Link href="/contact">
               <button className="px-8 py-3 bg-bgMain4 text-white text-xl font-medium rounded-sm hover:bg-bgMain5 transition-all duration-300">
                 Contact Us
               </button>
+              </Link>
             </div>
           </div>
         </div>

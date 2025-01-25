@@ -9,7 +9,7 @@ interface ProductDataProps {
 }
 
 const NewArrivalCard: React.FC<ProductDataProps> = ({ data }) => {
-  console.log(data);
+  // console.log(data);
 
   const { casematerial, model, title, featured_media_url, slug } = data;
 

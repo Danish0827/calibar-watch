@@ -46,17 +46,16 @@ const OurJourneyReverse = () => {
 
             <div className="text-sm md:text-base text-gray-600 duration-300 group-hover:text-black mt-4">
               <p className="text-justify">
-                At Caliber Start Watches, we are driven by a commitment to
-                excellence that defines every aspect of our craft. Our core
-                values shape how we design, create, and engage with our clients,
-                ensuring we deliver watches that not only meet the highest
-                standards but also exceed expectations. Our clients are at the
-                heart of our brand. We take the time to understand their unique
-                preferences, ensuring that each watch we produce aligns with
-                their personal style and values. Whether you're seeking
-                elegance, precision, or innovation, we are dedicated to
-                delivering a timepiece that not only meets but enhances your
-                lifestyle.
+                At Caliber Star, we are driven by a commitment to excellence
+                that defines every aspect of our craft. Our core values shape
+                how we design, create, and engage with our clients, ensuring we
+                deliver watches that not only meet the highest standards but
+                also exceed expectations. Our clients are at the heart of our
+                brand. We take the time to understand their unique preferences,
+                ensuring that each watch we produce aligns with their personal
+                style and values. Whether you're seeking elegance, precision, or
+                innovation, we are dedicated to delivering a timepiece that not
+                only meets but enhances your lifestyle.
               </p>
               <p className="mt-3 text-justify">
                 From the drawing board to the final assembly, every watch is
@@ -65,10 +64,11 @@ const OurJourneyReverse = () => {
                 executed. Our passion for perfection is evident in every watch
                 we produce, as we aim to exceed the expectations of even the
                 most discerning collectors. We understand the importance of our
-                role in preserving the environment and communities we serve. We
+                role in preserving the environment and communities we serve.
+                {/* We
                 are committed to sustainable practices in the sourcing of
                 materials, minimizing waste, and ensuring that our production
-                processes are as eco-conscious as possible.
+                processes are as eco-conscious as possible. */}
               </p>
             </div>
           </div>

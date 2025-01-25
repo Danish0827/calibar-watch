@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <React.Fragment>
+      <React.StrictMode>
         <body>
           <Appprovider>
             <AnnouncementBar />
@@ -27,7 +27,7 @@ export default function RootLayout({
             <Footer />
           </Appprovider>
         </body>
-      </React.Fragment>
+      </React.StrictMode>
     </html>
   );
 }

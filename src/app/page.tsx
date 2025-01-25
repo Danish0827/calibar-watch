@@ -9,7 +9,7 @@ import { Metadata } from "next";
 import CurrentHighlights from "@/components/HOME/CurrentHighlights";
 
 export const metadata: Metadata = {
-  title: "Caliber Star Watches",
+  title: "Caliber Star",
   description:
     "Explore our premium collection of luxury watches, designed for precision, style, and elegance.",
 };

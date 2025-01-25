@@ -22,7 +22,7 @@ const AllProducts = () => {
         `${process.env.BACKEND}/wp-json/custom-api/v1/products?page=${currentPage}&per_page=${perPage}`
       );
       const result = await response.json();
-      console.log(result, "result");
+      // console.log(result, "result");
 
       if (response.ok) {
         setData(result.products);
