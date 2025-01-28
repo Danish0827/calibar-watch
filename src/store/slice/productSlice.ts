@@ -3,6 +3,16 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface Product {
   title: string;
   slug: string;
+  brand: string;
+  model: string;
+  casediameter: string;
+  casematerial: string;
+  dialcolor: string;
+  dialtype: string;
+  bezel: string;
+  bracelet: string;
+  movement: string;
+  waterresistance: string;
   main_image_primary: string;
   main_image_secondary?: string | null;
 }
@@ -35,6 +45,7 @@ export const productSlice = createSlice({
   reducers: {
     setProducts(state, action: PayloadAction<Product[]>) {
       state.products = action.payload;
+      console.log(action.payload, "Danish");
     },
   },
 });

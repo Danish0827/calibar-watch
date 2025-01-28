@@ -9,19 +9,64 @@ import SearchResult from "./SearchResult";
 import Link from "next/link";
 import { IoCloseCircleOutline } from "react-icons/io5";
 
+interface Product {
+  title: string;
+  slug: string;
+  brand: string;
+  model: string;
+  casediameter: string;
+  casematerial: string;
+  dialcolor: string;
+  dialtype: string;
+  bezel: string;
+  bracelet: string;
+  movement: string;
+  waterresistance: string;
+  featured_media_url: string;
+  main_image_primary: string;
+  main_image_secondary?: string | null;
+}
+
 const SearchBar = ({ hasScrolled }: { hasScrolled: boolean }) => {
   const searchBoxRef = useRef<HTMLDivElement>(null);
   const [showSearchBox, setShowSearchBox] = useState(false);
   const [startSearch, setStartSearch] = useState(false);
   const [showSearchBar, setShowSearchBar] = useState(false);
-
+  const [products, setProducts] = useState<Product[]>([]);
   const [searchValue, setSearchValue] = useState("");
   const [loading, setLoading] = useState(false);
   const path = usePathname();
   const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const products = useSelector(
-    (state: RootState) => state.productData.products
-  );
+  // const products = useSelector(
+  //   (state: RootState) => state.productData.products
+  // );
+
+  const fetchAllProducts = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `${process.env.BACKEND}/wp-json/custom-api/v1/products`
+      );
+      const result = await response.json();
+      // console.log(result, "result");
+
+      if (response.ok) {
+        setProducts(result?.products);
+        // console.log(result?.products);
+      } else {
+        console.error("Failed to fetch products:", result);
+      }
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    // window.scrollTo({ top: 0, behavior: "smooth" });
+    fetchAllProducts();
+  }, []);
 
   // console.log(products, "searchproducts");
   const handleSearchBar = () => {
@@ -30,6 +75,8 @@ const SearchBar = ({ hasScrolled }: { hasScrolled: boolean }) => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
+    setSearchValue(value);
+
     setLoading(true);
 
     if (debounceTimeoutRef.current) clearTimeout(debounceTimeoutRef.current);
@@ -42,12 +89,35 @@ const SearchBar = ({ hasScrolled }: { hasScrolled: boolean }) => {
     }, 500);
   };
   const handleClear = () => {
-    // setSearchValue('')
+    setSearchValue("");
+    setStartSearch(false);
   };
 
-  const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(searchValue.toLowerCase())
-  );
+  const filteredProducts = products.filter((product) => {
+    const searchTerm = searchValue.toLowerCase();
+
+    // Safely check each property to ensure it exists before calling toLowerCase
+    return (
+      (product.title && product.title.toLowerCase().includes(searchTerm)) ||
+      (product.brand && product.brand.toLowerCase().includes(searchTerm)) ||
+      (product.model && product.model.toLowerCase().includes(searchTerm)) ||
+      (product.casediameter &&
+        product.casediameter.toLowerCase().includes(searchTerm)) ||
+      (product.casematerial &&
+        product.casematerial.toLowerCase().includes(searchTerm)) ||
+      (product.dialcolor &&
+        product.dialcolor.toLowerCase().includes(searchTerm)) ||
+      (product.dialtype &&
+        product.dialtype.toLowerCase().includes(searchTerm)) ||
+      (product.bezel && product.bezel.toLowerCase().includes(searchTerm)) ||
+      (product.bracelet &&
+        product.bracelet.toLowerCase().includes(searchTerm)) ||
+      (product.movement &&
+        product.movement.toLowerCase().includes(searchTerm)) ||
+      (product.waterresistance &&
+        product.waterresistance.toLowerCase().includes(searchTerm))
+    );
+  });
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -115,6 +185,7 @@ const SearchBar = ({ hasScrolled }: { hasScrolled: boolean }) => {
                   hasScrolled ? "text-white" : "text-white"
                 }`}
                 type="text"
+                value={searchValue}
                 placeholder="Search Products..."
               />
               <IoCloseCircleOutline
