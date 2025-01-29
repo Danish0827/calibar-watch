@@ -10,8 +10,6 @@ interface BreadCrumbProps {
 }
 
 const BreadCrumb: React.FC<BreadCrumbProps> = ({ title, page, image1 }) => {
-  console.log(image1?.[0], "image1");
-
   return (
     <>
       <div

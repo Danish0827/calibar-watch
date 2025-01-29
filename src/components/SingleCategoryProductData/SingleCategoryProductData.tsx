@@ -8,6 +8,7 @@ import NewArrivalCardSkeleton from "../NewArrivalSection/NewArrivalCardSkeleton"
 import { fetchBrandsData } from "@/utils/ApiUtils";
 import TimeoutComponent from "./TimeoutComponent";
 import { GiBottomRight3dArrow, GiFastArrow } from "react-icons/gi";
+import BrandBanner from "../HomeSlider/BrandBanner";
 
 interface SingleCategoryProductDataProps {
   params: string; // category name or slug
@@ -85,11 +86,11 @@ const SingleCategoryProductData: React.FC<SingleCategoryProductDataProps> = ({
 
   return (
     <div>
-      <BreadCrumb
+      <BrandBanner
         title={brands?.find((brand: any) => brand.slug === params)?.name || ""}
         page={brands?.find((brand: any) => brand.slug === params)?.slug || ""}
         image1={
-          brands?.find((brand: any) => brand.slug === params)?.meta?.[
+          brands?.find((brand: any) => brand.slug === params)?.[
             "bread-crump"
           ] || ""
         }
@@ -125,19 +126,21 @@ const SingleCategoryProductData: React.FC<SingleCategoryProductDataProps> = ({
           <button
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded disabled:bg-gray-200"
+            className="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded disabled:bg-gray-200"
           >
-            <GiBottomRight3dArrow className="rotate-[135deg]" />
+            {/* <GiBottomRight3dArrow className="rotate-[135deg]" /> */}
+            Previous
           </button>
 
-          {renderPageNumbers()}
+          {/* {renderPageNumbers()} */}
 
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded disabled:bg-gray-200"
+            className="px-4 py-2 bg-gray-400 hover:bg-gray-500 rounded disabled:bg-gray-200"
           >
-            <GiBottomRight3dArrow className="-rotate-45" />
+            {/* <GiBottomRight3dArrow className="-rotate-45" /> */}
+            Next
           </button>
         </div>
       </Wrapper>
