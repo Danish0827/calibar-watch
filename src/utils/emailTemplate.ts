@@ -36,13 +36,13 @@ export const generateEmailTemplate = ({
       <div style="background-color: #2a2a2a; border-radius: 8px; padding: 20px;">
         <h2 style="color: #ee7737; margin-bottom: 20px; text-align: center;">New Enquiry Details</h2>
         ${productDetails}
-        <p style="margin-bottom: 10px;"><strong>Name:</strong> ${name}</p>
-         <p style="margin-bottom: 10px;"><strong>Name:</strong> ${
+        <p style="margin-bottom: 10px;"><strong style="color: white;">Name:</strong> ${name}</p>
+         <p style="margin-bottom: 10px;"><strong style="color: white;">Company Name:</strong> ${
            cname ? cname : "-"
          }</p>
-        <p style="margin-bottom: 10px;"><strong>Phone:</strong> <a href="tel:${phone}" style="color: #ee7737; text-decoration: none;">${phone}</a></p>
-        <p style="margin-bottom: 10px;"><strong>Email:</strong> <a href="mailto:${email}" style="color: #ee7737; text-decoration: none;">${email}</a></p>
-        <p style="margin-bottom: 10px;"><strong>Message:</strong></p>
+        <p style="margin-bottom: 10px;"><strong style="color: white;">Phone:</strong> <a href="tel:${phone}" style="color: #ee7737; text-decoration: none;">${phone}</a></p>
+        <p style="margin-bottom: 10px;"><strong style="color: white;">Email:</strong> <a href="mailto:${email}" style="color: #ee7737; text-decoration: none;">${email}</a></p>
+        <p style="margin-bottom: 10px;"><strong style="color: white;">Message:</strong></p>
         <div style="background-color: #333333; border-radius: 5px; padding: 15px; color: #cccccc;">
           ${message}
         </div>

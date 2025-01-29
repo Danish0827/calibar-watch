@@ -48,7 +48,7 @@ export const send: React.FC<SendFuncProps> = async ({
 
   try {
     await sendmail({
-      to: "danishshaikh.st@gmail.com",
+      to: "info@caliberstar.com",
       name: "Caliber Star",
       subject: "Enquiry From Caliber Star ",
       body: emailBody,

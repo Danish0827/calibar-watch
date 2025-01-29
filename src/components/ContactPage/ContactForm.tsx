@@ -75,6 +75,7 @@ const ContactForm = ({
       setSubmitting(true);
 
       try {
+        formData.cname = formData.cname ? formData.cname : "-";
         const { name, cname, phone, email, message } = formData;
         // console.log(
         //   name,
@@ -132,7 +133,7 @@ const ContactForm = ({
             toast.error("Failed to send email. Please try again.");
           }
         } else {
-          toast.error("Failed to send email. Please try again.");
+          toast.error("Failed to send email -. Please try again.");
         }
       } catch (error) {
         toast.error("An error occurred. Please try again.");
@@ -147,14 +148,23 @@ const ContactForm = ({
       <ToastContainer />
       <form onSubmit={handleContactFormSubmit}>
         <div className="mb-4">
-          <input
-            placeholder="Name*"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            type="text"
-            className="w-full md:px-[20px] px-1 py-[10px] bg-transparent border-gray-100 border-b-2 text-white focus:outline-none"
-          />
+          <div className="relative w-full">
+            <input
+              placeholder="Name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              type="text"
+              className="w-full md:px-[20px] px-1 py-[10px] bg-transparent border-gray-100 border-b-2 text-white focus:outline-none"
+            />
+            {formData.name ? (
+              ""
+            ) : (
+              <span className="absolute left-16 top-1/2 transform -translate-y-1/2 text-red-500">
+                *
+              </span>
+            )}
+          </div>
           {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
         </div>
         <div className="mb-4">
@@ -168,39 +178,66 @@ const ContactForm = ({
           />
         </div>
         <div className="mb-4">
-          <input
-            placeholder="Phone*"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            type="number"
-            className="w-full md:px-[20px] px-1 py-[10px] bg-transparent border-gray-100 border-b-2 text-white focus:outline-none"
-          />
+          <div className="relative w-full">
+            <input
+              placeholder="Phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              type="number"
+              className="w-full md:px-[20px] px-1 py-[10px] bg-transparent border-gray-100 border-b-2 text-white focus:outline-none"
+            />
+            {formData.phone ? (
+              ""
+            ) : (
+              <span className="absolute left-[70px] top-1/2 transform -translate-y-1/2 text-red-500">
+                *
+              </span>
+            )}
+          </div>
           {errors.phone && (
             <p className="text-red-500 text-sm">{errors.phone}</p>
           )}
         </div>
         <div className="mb-4">
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Email*"
-            className="w-full md:px-[20px] px-1 py-[10px] bg-transparent border-gray-100 border-b-2 text-white focus:outline-none"
-          />
+          <div className="relative w-full">
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email"
+              className="w-full md:px-[20px] px-1 py-[10px] bg-transparent border-gray-100 border-b-2 text-white focus:outline-none"
+            />
+            {formData.email ? (
+              ""
+            ) : (
+              <span className="absolute left-16 top-1/2 transform -translate-y-1/2 text-red-500">
+                *
+              </span>
+            )}
+          </div>
           {errors.email && (
             <p className="text-red-500 text-sm">{errors.email}</p>
           )}
         </div>
         <div className="mb-4">
-          <textarea
-            placeholder="Message*"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            className="w-full h-32 md:px-[20px] px-1 py-[10px] bg-transparent border-gray-100 border-b-2 text-white focus:outline-none"
-          ></textarea>
+          <div className="relative w-full">
+            <textarea
+              placeholder="Message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full h-32 md:px-[20px] px-1 py-[10px] bg-transparent border-gray-100 border-b-2 text-white focus:outline-none"
+            ></textarea>
+            {formData.message ? (
+              ""
+            ) : (
+              <span className="absolute left-[90px] top-[25px] transform -translate-y-1/2 text-red-500">
+                *
+              </span>
+            )}
+          </div>
           {errors.message && (
             <p className="text-red-500 text-sm">{errors.message}</p>
           )}
