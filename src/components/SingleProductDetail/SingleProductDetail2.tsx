@@ -222,7 +222,7 @@ const SingleProductDetail2: React.FC<SingleProductDetailProps> = ({
                     {productDataBySlug.meta["case-diameter"].replace(
                       /&amp;/g,
                       "&"
-                    )}
+                    )}mm
                   </li>
                 )}
                 {productDataBySlug?.meta?.["case-material"] && (

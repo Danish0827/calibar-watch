@@ -45,7 +45,7 @@ export const productSlice = createSlice({
   reducers: {
     setProducts(state, action: PayloadAction<Product[]>) {
       state.products = action.payload;
-      console.log(action.payload, "Danish");
+      // console.log(action.payload, "Danish");
     },
   },
 });

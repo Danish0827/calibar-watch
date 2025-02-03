@@ -6,12 +6,14 @@ interface SearchResultProps {
   searchValue: string;
   startSearch: boolean;
   products: any[];
+  setShowSearchBar:boolean
 }
 
 const SearchResult: React.FC<SearchResultProps> = ({
   searchValue,
   startSearch,
   products,
+  setShowSearchBar
 }) => {
   let limit = 5;
   if (startSearch) {
@@ -32,7 +34,7 @@ const SearchResult: React.FC<SearchResultProps> = ({
           </h2>
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
             {products.slice(0, limit).map((item, i) => (
-              <SearchCard key={i} data={item} />
+              <SearchCard key={i} data={item} setShowSearchBar={setShowSearchBar} />
             ))}
           </div>
         </div>

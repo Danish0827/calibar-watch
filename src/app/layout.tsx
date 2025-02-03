@@ -16,17 +16,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <React.StrictMode>
-        <body>
-          <Appprovider>
-            <AnnouncementBar />
-            <Header />
-            {children}
-            <ToastContainer />
-            {/* <FloatingButton /> */}
-            <FloatingAppointment />
-            <Footer />
-          </Appprovider>
-        </body>
+        <React.Fragment>
+          <body>
+            <Appprovider>
+              <AnnouncementBar />
+              <Header />
+              {children}
+              <ToastContainer />
+              {/* <FloatingButton /> */}
+              <FloatingAppointment />
+              <Footer />
+            </Appprovider>
+          </body>
+        </React.Fragment>
       </React.StrictMode>
     </html>
   );

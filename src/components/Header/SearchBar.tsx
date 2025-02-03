@@ -225,6 +225,7 @@ const SearchBar = ({ hasScrolled }: { hasScrolled: boolean }) => {
                   searchValue={searchValue}
                   products={filteredProducts}
                   startSearch={startSearch}
+                  setShowSearchBar={setShowSearchBar}
                 />
               )}
             </div>

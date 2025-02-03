@@ -2,13 +2,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { ProductDataByCategory } from "../SingleCategoryProductData/SingleCategoryProductData";
+// import { ProductDataByCategory } from "../SingleCategoryProductData/SingleCategoryProductData";
 
 interface ProductDataProps {
-  data: ProductDataByCategory;
+  data: any;
+  params: string;
 }
 
-const NewArrivalCard: React.FC<ProductDataProps> = ({ data }) => {
+const NewArrivalCard: React.FC<ProductDataProps> = ({ data, params }) => {
   // console.log(data);
 
   const { casematerial, model, title, featured_media_url, slug } = data;
@@ -18,10 +19,18 @@ const NewArrivalCard: React.FC<ProductDataProps> = ({ data }) => {
       <div className="group relative flex items-center p-4 bg-gray-100 shadow-md hover:shadow-xl rounded-lg cursor-pointer transition duration-300">
         {/* Product Details */}
         <div className="ml-4 text-left w-2/3">
-          <h4 className="text-lg pb-1 md:pb-2 font-semibold text-bgMain4">{title}</h4>
-          <p className="text-sm text-gray-700">
-            {casematerial.replace(/&amp;/g, "&")}
-          </p>
+          <h4
+            className={`text-lg pb-1 ${
+              params === "rolex" ? "md:pb-2" : "md:pb-0"
+            } font-semibold text-bgMain4`}
+          >
+            {title}
+          </h4>
+          {params === "rolex" && (
+            <p className="text-sm text-gray-700">
+              {casematerial.replace(/&amp;/g, "&")}
+            </p>
+          )}
           {/* <p className="text-md font-bold mt-1">163,800 AED</p> */}
           <span className="text-xs uppercase font-semibold text-black">
             {model}

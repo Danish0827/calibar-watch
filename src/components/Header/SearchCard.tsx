@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -10,9 +10,10 @@ interface ProductDataProps {
     main_image_primary: string;
     main_image_secondary?: string | null;
   };
+  setShowSearchBar: any;
 }
 
-const SearchCard: React.FC<ProductDataProps> = ({ data }) => {
+const SearchCard: React.FC<ProductDataProps> = ({ data, setShowSearchBar }) => {
   const { title, main_image_primary, main_image_secondary, slug } = data;
   const [isHovered, setIsHovered] = useState(false);
 
@@ -23,10 +24,13 @@ const SearchCard: React.FC<ProductDataProps> = ({ data }) => {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+  const handleClick = () => {
+    setShowSearchBar(false);
+  };
 
   return (
     <>
-      <Link href={`/product/${slug}`}>
+      <Link onClick={handleClick} href={`/product/${slug}`}>
         <div
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}

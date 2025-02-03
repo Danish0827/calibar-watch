@@ -12,7 +12,7 @@ interface BreadCrumbProps {
 }
 
 const BrandBanner: React.FC<BreadCrumbProps> = ({ title, page, image1 }) => {
-  console.log(image1);
+  // console.log(image1);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [loading, setLoading] = useState(true); // Track image loading

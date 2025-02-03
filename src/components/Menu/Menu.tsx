@@ -126,6 +126,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
             subMenuData={item.subMenuData}
             activeSubMenu={activeSubMenu}
             setActiveSubMenu={setActiveSubMenu}
+            setActiveMenu={setActiveMenu}
           />
         )}
       </li>
@@ -149,12 +150,17 @@ interface SubMenuListProps {
   subMenuData: SubMenu[];
   activeSubMenu: number | null;
   setActiveSubMenu: (id: number | null) => void;
+  setActiveMenu: (id: number | null) => void;
 }
-
+const sasa = (setActiveMenu: any, setActiveSubMenu: any) => {
+  setActiveMenu(null);
+  setActiveSubMenu(null);
+};
 const SubMenuList: React.FC<SubMenuListProps> = ({
   subMenuData,
   activeSubMenu,
   setActiveSubMenu,
+  setActiveMenu,
 }) => (
   <ul className="bg-white absolute top-[70px] min-w-[256px] px-2 py-1 text-black shadow-lg z-10">
     {subMenuData.map((submenu) => (
@@ -166,6 +172,7 @@ const SubMenuList: React.FC<SubMenuListProps> = ({
       >
         <Link
           href={submenu.url || "/"}
+          onClick={(e) => sasa(setActiveMenu, setActiveSubMenu)}
           className="h-12 flex text-base justify-between items-center px-3 hover:bg-black/[0.05] rounded-md"
         >
           {submenu.name}

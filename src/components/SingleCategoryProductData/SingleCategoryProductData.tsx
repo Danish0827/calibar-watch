@@ -113,7 +113,7 @@ const SingleCategoryProductData: React.FC<SingleCategoryProductDataProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {products.length > 0 ? (
               products.map((product: any, index: any) => (
-                <NewArrivalCard key={product.id || index} data={product} />
+                <NewArrivalCard key={product.id || index} data={product} params={params} />
               ))
             ) : (
               <TimeoutComponent />
